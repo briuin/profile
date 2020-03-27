@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@vue-mf/root-config": "https://storage.googleapis.com/vue.microfrontends.app/root-config/0edd5bf5cd49f2486474ed22a4636b9d59ad8d4c/vue-mf-root-config.js",
+    "@vue-mf/root-config": "https://briuin.github.io/profile/vue-mf-root-config.js",
     "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.2.1/lib/system/single-spa.min.js",
     "@vue-mf/styleguide": "https://storage.googleapis.com/vue.microfrontends.app/styleguide/4a0c5856837141adb28fe9cc44a71e456d4a5705/vue-mf-styleguide.js",
     "@briuin/avatar": "https://briuin.github.io/avatar/js/app.js",
