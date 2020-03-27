@@ -8,7 +8,7 @@ module.exports = env => ({
   output: {
     filename: "vue-mf-root-config.js",
     libraryTarget: "system",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "docs")
   },
   devtool: "sourcemap",
   module: {
