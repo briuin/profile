@@ -1,6 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = env => ({
   entry: path.resolve(__dirname, "src/vue-mf-root-config"),
@@ -35,6 +36,7 @@ module.exports = env => ({
         isLocal: env && env.isLocal === "true"
       }
     }),
+    new CopyPlugin([{ from: "src/importmap.json", to: "importmap.json" }]),
     new CleanWebpackPlugin()
   ],
   externals: ["single-spa", "vue", "vue-router", /^@vue-mf\/.+$/]
