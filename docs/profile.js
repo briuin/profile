@@ -111,4 +111,4 @@ System.register(["single-spa"], function(t) {
     }
   };
 });
-//# sourceMappingURL=vue-mf-root-config.js.map
+//# sourceMappingURL=profile.js.map

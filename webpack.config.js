@@ -4,9 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = env => ({
-  entry: path.resolve(__dirname, "src/vue-mf-root-config"),
+  entry: path.resolve(__dirname, "src/profile"),
   output: {
-    filename: "vue-mf-root-config.js",
+    filename: "profile.js",
     libraryTarget: "system",
     path: path.resolve(__dirname, "docs")
   },
