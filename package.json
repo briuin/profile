@@ -4,7 +4,8 @@
     "lint": "eslint src",
     "test": "jest",
     "prettier": "prettier --write './**'",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "deploy:github": "yarn build && git add . && git commit -m 'deploy' && git push origin master"
   },
   "husky": {
     "hooks": {
