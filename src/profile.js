@@ -12,7 +12,7 @@ async function init() {
       "@briuin/avatar",
       "",
       "@briuin/avatar",
-      "@briuin/avatar/store.js",
+      null,
       globalEventDistributor
     )
   );
@@ -20,9 +20,9 @@ async function init() {
   loadingPromises.push(
     loadApp(
       "@briuin/timeline",
-      "",
+      null,
       "@briuin/timeline",
-      "@briuin/timeline/store.js",
+      "@briuin/timeline/store",
       globalEventDistributor
     )
   );

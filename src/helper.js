@@ -2,6 +2,9 @@ import * as singleSpa from "single-spa"; // waiting for this to be merged: https
 
 export function hashPrefix(prefix) {
   return function(location) {
+    if (!prefix) {
+      return true;
+    }
     return location.hash.startsWith(`#${prefix}`);
   };
 }
@@ -19,7 +22,7 @@ export async function loadApp(
   // try to import the store module
   try {
     storeModule = storeURL
-      ? await SystemJS.import(storeURL)
+      ? await System.import(storeURL)
       : { storeInstance: null };
   } catch (e) {
     console.error(`Could not load store of app ${name}.`, e);
@@ -36,7 +39,7 @@ export async function loadApp(
   // register the app with singleSPA and pass a reference to the store of the app as well as a reference to the globalEventDistributor
   singleSpa.registerApplication(
     name,
-    () => SystemJS.import(appURL),
+    () => System.import(appURL),
     hashPrefix(hash),
     customProps
   );

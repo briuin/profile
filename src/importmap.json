@@ -6,6 +6,7 @@
     "@briuin/avatar": "https://briuin.github.io/avatar/js/app.js",
     "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js",
     "@briuin/timeline": "https://briuin.github.io/timeline/app.js",
+    "@briuin/timeline/store": "https://briuin.github.io/timeline/store.js",
     "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.1.5/dist/vue-router.min.js",
     "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
     "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
