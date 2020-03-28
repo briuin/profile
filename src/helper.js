@@ -30,8 +30,6 @@ export async function loadApp(
 
   if (storeModule.storeInstance && globalEventDistributor) {
     // add a reference of the store to the customProps
-    storeModule.storeInstance.getState = () =>
-      storeModule.storeInstance.getState().reducer;
     customProps.store = storeModule.storeInstance;
 
     // register the store with the globalEventDistributor

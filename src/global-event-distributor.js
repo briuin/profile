@@ -22,7 +22,7 @@ export class GlobalEventDistributor {
     let state = {};
     this.stores.forEach(s => {
       let currentState = s.getState();
-      state[currentState.namespace] = currentState.reducer;
+      state[currentState.namespace] = currentState;
     });
     return state;
   }
