@@ -3819,7 +3819,7 @@ System.register(["single-spa"], function(e) {
                             s.storeInstance &&
                               i &&
                               ((s.storeInstance.getState = function() {
-                                return s.getState().reducer;
+                                return s.storeInstance.getState().reducer;
                               }),
                               (u.store = s.storeInstance),
                               i.registerStore(s.storeInstance)),
