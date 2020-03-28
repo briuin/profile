@@ -3763,7 +3763,7 @@ System.register(["single-spa"], function(e) {
                         return (
                           this.stores.forEach(function(t) {
                             var n = t.getState();
-                            e[n.namespace] = n;
+                            e[n.namespace] = n.reducer;
                           }),
                           e
                         );
