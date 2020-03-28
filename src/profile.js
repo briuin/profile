@@ -8,15 +8,9 @@ registerApplication(
 );
 
 registerApplication(
-  "@vue-mf/dogs-dashboard",
-  () => System.import("@vue-mf/dogs-dashboard"),
-  isActive.dogsDashboard
-);
-
-registerApplication(
-  "@vue-mf/rate-dogs",
-  () => System.import("@vue-mf/rate-dogs"),
-  isActive.rateDogs
+  "@briuin/timeline",
+  () => System.import("@briuin/timeline"),
+  isActive.navbar
 );
 
 start();
