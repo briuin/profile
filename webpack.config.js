@@ -6,7 +6,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = env => ({
   entry: path.resolve(__dirname, "src/profile"),
   output: {
-    filename: "profile.js",
+    filename: "app.js",
     libraryTarget: "system",
     path: path.resolve(__dirname, "docs")
   },

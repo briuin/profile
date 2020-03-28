@@ -111,4 +111,4 @@ System.register(["single-spa"], function(t) {
     }
   };
 });
-//# sourceMappingURL=profile.js.map
+//# sourceMappingURL=app.js.map
