@@ -1,24 +1,35 @@
-import { registerApplication, start } from "single-spa";
-import * as isActive from "./activity-functions";
-import { storeInstance } from "./store";
+import "zone.js";
+import * as singleSpa from "single-spa";
 import { GlobalEventDistributor } from "./global-event-distributor";
+import { loadApp } from "./helper";
 
-const customProps = {
-  store: storeInstance,
-  globalEventDistributor: new GlobalEventDistributor()
-};
+async function init() {
+  const globalEventDistributor = new GlobalEventDistributor();
+  const loadingPromises = [];
 
-registerApplication(
-  "@briuin/avatar",
-  () => System.import("@briuin/avatar"),
-  isActive.navbar,
-  customProps
-);
+  loadingPromises.push(
+    loadApp(
+      "@briuin/avatar",
+      "",
+      "@briuin/avatar",
+      "@briuin/avatar/store.js",
+      globalEventDistributor
+    )
+  );
 
-registerApplication(
-  "@briuin/timeline",
-  () => System.import("@briuin/timeline"),
-  isActive.navbar
-);
+  loadingPromises.push(
+    loadApp(
+      "@briuin/timeline",
+      "",
+      "@briuin/timeline",
+      "@briuin/timeline/store.js",
+      globalEventDistributor
+    )
+  );
 
-start();
+  await Promise.all(loadingPromises);
+
+  singleSpa.start();
+}
+
+init();

@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "redux": "^4.0.5",
-    "single-spa": "^4.4.2"
+    "single-spa": "^4.4.2",
+    "zone.js": "^0.10.3"
   }
 }
