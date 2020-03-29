@@ -149,7 +149,7 @@ System.register(["single-spa"], function(e) {
                       for (n.method = o, n.arg = a; ; ) {
                         var i = n.delegate;
                         if (i) {
-                          var c = _(i, n);
+                          var c = b(i, n);
                           if (c) {
                             if (c === u) continue;
                             return c;
@@ -246,7 +246,7 @@ System.register(["single-spa"], function(e) {
                   return (r = r ? r.then(i, i) : i());
                 };
               }
-              function _(e, t) {
+              function b(e, t) {
                 var n = e.iterator[t.method];
                 if (void 0 === n) {
                   if (((t.delegate = null), "throw" === t.method)) {
@@ -254,7 +254,7 @@ System.register(["single-spa"], function(e) {
                       e.iterator.return &&
                       ((t.method = "return"),
                       (t.arg = void 0),
-                      _(e, t),
+                      b(e, t),
                       "throw" === t.method)
                     )
                       return u;
@@ -288,7 +288,7 @@ System.register(["single-spa"], function(e) {
                     (t.delegate = null),
                     u);
               }
-              function b(e) {
+              function _(e) {
                 var t = { tryLoc: e[0] };
                 1 in e && (t.catchLoc = e[1]),
                   2 in e && ((t.finallyLoc = e[2]), (t.afterLoc = e[3])),
@@ -300,7 +300,7 @@ System.register(["single-spa"], function(e) {
               }
               function T(e) {
                 (this.tryEntries = [{ tryLoc: "root" }]),
-                  e.forEach(b, this),
+                  e.forEach(_, this),
                   this.reset(!0);
               }
               function E(e) {
@@ -690,13 +690,13 @@ System.register(["single-spa"], function(e) {
                             if (e.zone != this)
                               throw new Error(
                                 "A task can only be run in the zone of creation! (Creation: " +
-                                  (e.zone || _).name +
+                                  (e.zone || b).name +
                                   "; Execution: " +
                                   this.name +
                                   ")"
                               );
                             if (
-                              e.state !== b ||
+                              e.state !== _ ||
                               (e.type !== Z && e.type !== P)
                             ) {
                               var r = e.state != E;
@@ -720,13 +720,13 @@ System.register(["single-spa"], function(e) {
                                     throw e;
                                 }
                               } finally {
-                                e.state !== b &&
+                                e.state !== _ &&
                                   e.state !== S &&
                                   (e.type == Z || (e.data && e.data.isPeriodic)
                                     ? r && e._transitionTo(T, E)
                                     : ((e.runCount = 0),
                                       this._updateTaskCount(e, -1),
-                                      r && e._transitionTo(b, E, b))),
+                                      r && e._transitionTo(_, E, _))),
                                   (C = C.parent),
                                   (x = o);
                               }
@@ -744,13 +744,13 @@ System.register(["single-spa"], function(e) {
                                   );
                                 t = t.parent;
                               }
-                            e._transitionTo(k, b);
+                            e._transitionTo(k, _);
                             var n = [];
                             (e._zoneDelegates = n), (e._zone = this);
                             try {
                               e = this._zoneDelegate.scheduleTask(this, e);
                             } catch (t) {
-                              throw (e._transitionTo(S, k, b),
+                              throw (e._transitionTo(S, k, _),
                               this._zoneDelegate.handleError(this, t),
                               t);
                             }
@@ -793,7 +793,7 @@ System.register(["single-spa"], function(e) {
                             if (e.zone != this)
                               throw new Error(
                                 "A task can only be cancelled in the zone of creation! (Creation: " +
-                                  (e.zone || _).name +
+                                  (e.zone || b).name +
                                   "; Execution: " +
                                   this.name +
                                   ")"
@@ -808,7 +808,7 @@ System.register(["single-spa"], function(e) {
                             }
                             return (
                               this._updateTaskCount(e, -1),
-                              e._transitionTo(b, w),
+                              e._transitionTo(_, w),
                               (e.runCount = 0),
                               e
                             );
@@ -1114,7 +1114,7 @@ System.register(["single-spa"], function(e) {
                               configurable: !0
                             }),
                             (t.prototype.cancelScheduleRequest = function() {
-                              this._transitionTo(b, k);
+                              this._transitionTo(_, k);
                             }),
                             (t.prototype._transitionTo = function(e, t, n) {
                               if (this._state !== t && this._state !== n)
@@ -1133,7 +1133,7 @@ System.register(["single-spa"], function(e) {
                                     "'."
                                 );
                               (this._state = e),
-                                e == b && (this._zoneDelegates = null);
+                                e == _ && (this._zoneDelegates = null);
                             }),
                             (t.prototype.toString = function() {
                               return this.data && void 0 !== this.data.handleId
@@ -1182,8 +1182,8 @@ System.register(["single-spa"], function(e) {
                           j.microtaskDrainDone(), (y = !1);
                         }
                       }
-                      var _ = { name: "NO ZONE" },
-                        b = "notScheduled",
+                      var b = { name: "NO ZONE" },
+                        _ = "notScheduled",
                         k = "scheduling",
                         T = "scheduled",
                         E = "running",
@@ -1342,7 +1342,7 @@ System.register(["single-spa"], function(e) {
                           y = a("finally"),
                           g = a("parentPromiseValue"),
                           m = a("parentPromiseState");
-                        function _(e, t) {
+                        function b(e, t) {
                           return function(n) {
                             try {
                               k(e, t, n);
@@ -1351,7 +1351,7 @@ System.register(["single-spa"], function(e) {
                             }
                           };
                         }
-                        var b = a("currentTaskTrace");
+                        var _ = a("currentTaskTrace");
                         function k(e, r, a) {
                           var s,
                             u =
@@ -1387,7 +1387,7 @@ System.register(["single-spa"], function(e) {
                               E(a), k(e, a[d], a[v]);
                             else if (!1 !== r && "function" == typeof l)
                               try {
-                                l.call(a, u(_(e, r)), u(_(e, !1)));
+                                l.call(a, u(b(e, r)), u(b(e, !1)));
                               } catch (t) {
                                 u(function() {
                                   k(e, !1, t);
@@ -1408,7 +1408,7 @@ System.register(["single-spa"], function(e) {
                                   t.currentTask.data &&
                                   t.currentTask.data.__creationTrace__;
                                 p &&
-                                  o(a, b, {
+                                  o(a, _, {
                                     configurable: !0,
                                     enumerable: !1,
                                     writable: !0,
@@ -1512,7 +1512,7 @@ System.register(["single-spa"], function(e) {
                                 );
                               (this[d] = null), (this[v] = []);
                               try {
-                                t && t(_(this, !0), _(this, !1));
+                                t && t(b(this, !0), b(this, !1));
                               } catch (e) {
                                 k(this, !1, e);
                               }
@@ -1756,11 +1756,11 @@ System.register(["single-spa"], function(e) {
                     var m =
                         "undefined" != typeof WorkerGlobalScope &&
                         self instanceof WorkerGlobalScope,
-                      _ =
+                      b =
                         !("nw" in d) &&
                         void 0 !== d.process &&
                         "[object process]" === {}.toString.call(d.process),
-                      b = !_ && !m && !(!p || !h.HTMLElement),
+                      _ = !b && !m && !(!p || !h.HTMLElement),
                       k =
                         void 0 !== d.process &&
                         "[object process]" === {}.toString.call(d.process) &&
@@ -1774,7 +1774,7 @@ System.register(["single-spa"], function(e) {
                           var n,
                             r = this || e.target || d,
                             o = r[t];
-                          if (b && r === h && "error" === e.type) {
+                          if (_ && r === h && "error" === e.type) {
                             var a = e;
                             !0 ===
                               (n =
@@ -2111,7 +2111,7 @@ System.register(["single-spa"], function(e) {
                         for (var m = t; m && !m.hasOwnProperty(o); ) m = n(m);
                         if ((!m && t[o] && (m = t), !m)) return !1;
                         if (m[u]) return !1;
-                        var b,
+                        var _,
                           k = r && r.eventNameToString,
                           T = {},
                           E = (m[u] = m[o]),
@@ -2133,7 +2133,7 @@ System.register(["single-spa"], function(e) {
                               : { passive: !0 }
                             : e;
                         }
-                        r && r.prepend && (b = m[f(r.prepend)] = m[r.prepend]);
+                        r && r.prepend && (_ = m[f(r.prepend)] = m[r.prepend]);
                         var Z = p
                             ? function(e) {
                                 if (!T.isExisting)
@@ -2210,7 +2210,7 @@ System.register(["single-spa"], function(e) {
                                   (u = r.transferEventName(u));
                                 var l = arguments[1];
                                 if (!l) return t.apply(this, arguments);
-                                if (_ && "uncaughtException" === u)
+                                if (b && "uncaughtException" === u)
                                   return t.apply(this, arguments);
                                 var f = !1;
                                 if ("function" != typeof l) {
@@ -2230,7 +2230,7 @@ System.register(["single-spa"], function(e) {
                                   var m =
                                       !!d &&
                                       ("boolean" == typeof d || d.capture),
-                                    b = !(!d || "object" != typeof d) && d.once,
+                                    _ = !(!d || "object" != typeof d) && d.once,
                                     E = Zone.current,
                                     w = N[u];
                                   w || (G(u, k), (w = N[u]));
@@ -2248,7 +2248,7 @@ System.register(["single-spa"], function(e) {
                                   z && (S = z[u]),
                                     S || (S = j + n + (k ? k(u) : u)),
                                     (T.options = d),
-                                    b && (T.options.once = !1),
+                                    _ && (T.options.once = !1),
                                     (T.target = s),
                                     (T.capture = m),
                                     (T.eventName = u),
@@ -2259,7 +2259,7 @@ System.register(["single-spa"], function(e) {
                                   return (
                                     (T.target = null),
                                     M && (M.taskData = null),
-                                    b && (d.once = !0),
+                                    _ && (d.once = !0),
                                     (I || "boolean" != typeof A.options) &&
                                       (A.options = d),
                                     (A.target = s),
@@ -2275,12 +2275,12 @@ System.register(["single-spa"], function(e) {
                           };
                         return (
                           (m[o] = z(E, l, Z, D, g)),
-                          b &&
+                          _ &&
                             (m.prependListener = z(
-                              b,
+                              _,
                               ".prependListener:",
                               function(e) {
-                                return b.call(
+                                return _.call(
                                   T.target,
                                   T.eventName,
                                   e.invoke,
@@ -2389,10 +2389,10 @@ System.register(["single-spa"], function(e) {
                               ) {
                                 var y = d[v],
                                   m = A.exec(y),
-                                  _ = m && m[1];
-                                _ &&
-                                  "removeListener" !== _ &&
-                                  this[c].call(this, _);
+                                  b = m && m[1];
+                                b &&
+                                  "removeListener" !== b &&
+                                  this[c].call(this, b);
                               }
                               this[c].call(this, "removeListener");
                             }
@@ -2785,10 +2785,10 @@ System.register(["single-spa"], function(e) {
                       e && S(e, se(e, t, n), r);
                     }
                     function le(e, t) {
-                      if ((!_ || k) && !Zone[e.symbol("patchEvents")]) {
+                      if ((!b || k) && !Zone[e.symbol("patchEvents")]) {
                         var r = "undefined" != typeof WebSocket,
                           o = t.__Zone_ignore_on_properties;
-                        if (b) {
+                        if (_) {
                           var a = window,
                             i = L
                               ? [{ target: a, ignoreProperties: ["error"] }]
@@ -2979,9 +2979,9 @@ System.register(["single-spa"], function(e) {
                         m < r.length;
                         m++
                       ) {
-                        var _ = s + ((w = r[m]) + c),
-                          b = s + (w + i);
-                        (a[w] = {}), (a[w][c] = _), (a[w][i] = b);
+                        var b = s + ((w = r[m]) + c),
+                          _ = s + (w + i);
+                        (a[w] = {}), (a[w][c] = b), (a[w][i] = _);
                       }
                       for (m = 0; m < p.length; m++)
                         for (
@@ -3272,9 +3272,9 @@ System.register(["single-spa"], function(e) {
                             globalSources: F,
                             zoneSymbolEventNames: N,
                             eventNames: ce,
-                            isBrowser: b,
+                            isBrowser: _,
                             isMix: k,
-                            isNode: _,
+                            isNode: b,
                             TRUE_STR: "true",
                             FALSE_STR: "false",
                             ZONE_SYMBOL_PREFIX: s,
@@ -3348,7 +3348,7 @@ System.register(["single-spa"], function(e) {
                      * found in the LICENSE file at https://angular.io/license
                      */
                     var me = f("zoneTask");
-                    function _e(e, t, n, r) {
+                    function be(e, t, n, r) {
                       var o = null,
                         a = null;
                       n += r;
@@ -3437,7 +3437,7 @@ System.register(["single-spa"], function(e) {
                      * Use of this source code is governed by an MIT-style license that can be
                      * found in the LICENSE file at https://angular.io/license
                      */
-                    function be(e, t) {
+                    function _e(e, t) {
                       if (!Zone[t.symbol("patchEventTarget")]) {
                         for (
                           var n = t.getGlobalObjects(),
@@ -3472,14 +3472,14 @@ System.register(["single-spa"], function(e) {
                       t && t();
                     }),
                       Zone.__load_patch("timers", function(e) {
-                        _e(e, "set", "clear", "Timeout"),
-                          _e(e, "set", "clear", "Interval"),
-                          _e(e, "set", "clear", "Immediate");
+                        be(e, "set", "clear", "Timeout"),
+                          be(e, "set", "clear", "Interval"),
+                          be(e, "set", "clear", "Immediate");
                       }),
                       Zone.__load_patch("requestAnimationFrame", function(e) {
-                        _e(e, "request", "cancel", "AnimationFrame"),
-                          _e(e, "mozRequest", "mozCancel", "AnimationFrame"),
-                          _e(
+                        be(e, "request", "cancel", "AnimationFrame"),
+                          be(e, "mozRequest", "mozCancel", "AnimationFrame"),
+                          be(
                             e,
                             "webkitRequest",
                             "webkitCancel",
@@ -3502,7 +3502,7 @@ System.register(["single-spa"], function(e) {
                         !(function(e, t) {
                           t.patchEventPrototype(e, t);
                         })(e, n),
-                          be(e, n);
+                          _e(e, n);
                         var r = e.XMLHttpRequestEventTarget;
                         r &&
                           r.prototype &&
@@ -3560,11 +3560,11 @@ System.register(["single-spa"], function(e) {
                                   );
                                 };
                               }),
-                              _ = f("fetchTaskAborting"),
-                              b = f("fetchTaskScheduling"),
+                              b = f("fetchTaskAborting"),
+                              _ = f("fetchTaskScheduling"),
                               k = Z(h, "send", function() {
                                 return function(e, n) {
-                                  if (!0 === t.current[b]) return k.apply(e, n);
+                                  if (!0 === t.current[_]) return k.apply(e, n);
                                   if (e[r]) return k.apply(e, n);
                                   var o = {
                                       target: e,
@@ -3591,7 +3591,7 @@ System.register(["single-spa"], function(e) {
                                     )
                                       return;
                                     o.zone.cancelTask(o);
-                                  } else if (!0 === t.current[_]) return T.apply(e, r);
+                                  } else if (!0 === t.current[b]) return T.apply(e, r);
                                 };
                               });
                           }
@@ -3862,12 +3862,21 @@ System.register(["single-spa"], function(e) {
                                 t
                               )
                             ),
-                            (e.next = 6),
+                            n.push(
+                              d(
+                                "@briuin/experience",
+                                null,
+                                "@briuin/experience",
+                                null,
+                                t
+                              )
+                            ),
+                            (e.next = 7),
                             Promise.all(n)
                           );
-                        case 6:
-                          c.start();
                         case 7:
+                          c.start();
+                        case 8:
                         case "end":
                           return e.stop();
                       }

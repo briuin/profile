@@ -27,6 +27,16 @@ async function init() {
     )
   );
 
+  loadingPromises.push(
+    loadApp(
+      "@briuin/experience",
+      null,
+      "@briuin/experience",
+      null,
+      globalEventDistributor
+    )
+  );
+
   await Promise.all(loadingPromises);
 
   singleSpa.start();
