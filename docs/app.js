@@ -10,19 +10,19 @@ System.register(["single-spa"], function(e) {
       e(
         (function(e) {
           var t = {};
-          function n(r) {
-            if (t[r]) return t[r].exports;
-            var o = (t[r] = { i: r, l: !1, exports: {} });
-            return e[r].call(o.exports, o, o.exports, n), (o.l = !0), o.exports;
+          function r(n) {
+            if (t[n]) return t[n].exports;
+            var o = (t[n] = { i: n, l: !1, exports: {} });
+            return e[n].call(o.exports, o, o.exports, r), (o.l = !0), o.exports;
           }
           return (
-            (n.m = e),
-            (n.c = t),
-            (n.d = function(e, t, r) {
-              n.o(e, t) ||
-                Object.defineProperty(e, t, { enumerable: !0, get: r });
+            (r.m = e),
+            (r.c = t),
+            (r.d = function(e, t, n) {
+              r.o(e, t) ||
+                Object.defineProperty(e, t, { enumerable: !0, get: n });
             }),
-            (n.r = function(e) {
+            (r.r = function(e) {
               "undefined" != typeof Symbol &&
                 Symbol.toStringTag &&
                 Object.defineProperty(e, Symbol.toStringTag, {
@@ -30,29 +30,29 @@ System.register(["single-spa"], function(e) {
                 }),
                 Object.defineProperty(e, "__esModule", { value: !0 });
             }),
-            (n.t = function(e, t) {
-              if ((1 & t && (e = n(e)), 8 & t)) return e;
+            (r.t = function(e, t) {
+              if ((1 & t && (e = r(e)), 8 & t)) return e;
               if (4 & t && "object" == typeof e && e && e.__esModule) return e;
-              var r = Object.create(null);
+              var n = Object.create(null);
               if (
-                (n.r(r),
-                Object.defineProperty(r, "default", {
+                (r.r(n),
+                Object.defineProperty(n, "default", {
                   enumerable: !0,
                   value: e
                 }),
                 2 & t && "string" != typeof e)
               )
                 for (var o in e)
-                  n.d(
-                    r,
+                  r.d(
+                    n,
                     o,
                     function(t) {
                       return e[t];
                     }.bind(null, o)
                   );
-              return r;
+              return n;
             }),
-            (n.n = function(e) {
+            (r.n = function(e) {
               var t =
                 e && e.__esModule
                   ? function() {
@@ -61,46 +61,46 @@ System.register(["single-spa"], function(e) {
                   : function() {
                       return e;
                     };
-              return n.d(t, "a", t), t;
+              return r.d(t, "a", t), t;
             }),
-            (n.o = function(e, t) {
+            (r.o = function(e, t) {
               return Object.prototype.hasOwnProperty.call(e, t);
             }),
-            (n.p = ""),
-            n((n.s = 8))
+            (r.p = ""),
+            r((r.s = 9))
           );
         })([
-          function(e, t, n) {
-            e.exports = n(5);
+          function(e, t, r) {
+            e.exports = r(6);
           },
           function(e, t) {
-            function n(e, t, n, r, o, a, i) {
+            function r(e, t, r, n, o, i, a) {
               try {
-                var c = e[a](i),
-                  s = c.value;
+                var s = e[i](a),
+                  c = s.value;
               } catch (e) {
-                return void n(e);
+                return void r(e);
               }
-              c.done ? t(s) : Promise.resolve(s).then(r, o);
+              s.done ? t(c) : Promise.resolve(c).then(n, o);
             }
             e.exports = function(e) {
               return function() {
                 var t = this,
-                  r = arguments;
-                return new Promise(function(o, a) {
-                  var i = e.apply(t, r);
-                  function c(e) {
-                    n(i, o, a, c, s, "next", e);
-                  }
+                  n = arguments;
+                return new Promise(function(o, i) {
+                  var a = e.apply(t, n);
                   function s(e) {
-                    n(i, o, a, c, s, "throw", e);
+                    r(a, o, i, s, c, "next", e);
                   }
-                  c(void 0);
+                  function c(e) {
+                    r(a, o, i, s, c, "throw", e);
+                  }
+                  s(void 0);
                 });
               };
             };
           },
-          function(e, n) {
+          function(e, r) {
             e.exports = t;
           },
           function(e, t) {
@@ -110,86 +110,101 @@ System.register(["single-spa"], function(e) {
             };
           },
           function(e, t) {
-            function n(e, t) {
-              for (var n = 0; n < t.length; n++) {
-                var r = t[n];
-                (r.enumerable = r.enumerable || !1),
-                  (r.configurable = !0),
-                  "value" in r && (r.writable = !0),
-                  Object.defineProperty(e, r.key, r);
+            function r(e, t) {
+              for (var r = 0; r < t.length; r++) {
+                var n = t[r];
+                (n.enumerable = n.enumerable || !1),
+                  (n.configurable = !0),
+                  "value" in n && (n.writable = !0),
+                  Object.defineProperty(e, n.key, n);
               }
             }
-            e.exports = function(e, t, r) {
-              return t && n(e.prototype, t), r && n(e, r), e;
+            e.exports = function(e, t, n) {
+              return t && r(e.prototype, t), n && r(e, n), e;
             };
           },
-          function(e, t, n) {
-            var r = (function(e) {
+          function(e, t) {
+            e.exports = function(e, t, r) {
+              return (
+                t in e
+                  ? Object.defineProperty(e, t, {
+                      value: r,
+                      enumerable: !0,
+                      configurable: !0,
+                      writable: !0
+                    })
+                  : (e[t] = r),
+                e
+              );
+            };
+          },
+          function(e, t, r) {
+            var n = (function(e) {
               "use strict";
               var t = Object.prototype,
-                n = t.hasOwnProperty,
-                r = "function" == typeof Symbol ? Symbol : {},
-                o = r.iterator || "@@iterator",
-                a = r.asyncIterator || "@@asyncIterator",
-                i = r.toStringTag || "@@toStringTag";
-              function c(e, t, n, r) {
+                r = t.hasOwnProperty,
+                n = "function" == typeof Symbol ? Symbol : {},
+                o = n.iterator || "@@iterator",
+                i = n.asyncIterator || "@@asyncIterator",
+                a = n.toStringTag || "@@toStringTag";
+              function s(e, t, r, n) {
                 var o = t && t.prototype instanceof l ? t : l,
-                  a = Object.create(o.prototype),
-                  i = new T(r || []);
+                  i = Object.create(o.prototype),
+                  a = new w(n || []);
                 return (
-                  (a._invoke = (function(e, t, n) {
-                    var r = "suspendedStart";
-                    return function(o, a) {
-                      if ("executing" === r)
+                  (i._invoke = (function(e, t, r) {
+                    var n = "suspendedStart";
+                    return function(o, i) {
+                      if ("executing" === n)
                         throw new Error("Generator is already running");
-                      if ("completed" === r) {
-                        if ("throw" === o) throw a;
-                        return w();
+                      if ("completed" === n) {
+                        if ("throw" === o) throw i;
+                        return T();
                       }
-                      for (n.method = o, n.arg = a; ; ) {
-                        var i = n.delegate;
-                        if (i) {
-                          var c = b(i, n);
-                          if (c) {
-                            if (c === u) continue;
-                            return c;
+                      for (r.method = o, r.arg = i; ; ) {
+                        var a = r.delegate;
+                        if (a) {
+                          var s = m(a, r);
+                          if (s) {
+                            if (s === u) continue;
+                            return s;
                           }
                         }
-                        if ("next" === n.method) n.sent = n._sent = n.arg;
-                        else if ("throw" === n.method) {
-                          if ("suspendedStart" === r)
-                            throw ((r = "completed"), n.arg);
-                          n.dispatchException(n.arg);
+                        if ("next" === r.method) r.sent = r._sent = r.arg;
+                        else if ("throw" === r.method) {
+                          if ("suspendedStart" === n)
+                            throw ((n = "completed"), r.arg);
+                          r.dispatchException(r.arg);
                         } else
-                          "return" === n.method && n.abrupt("return", n.arg);
-                        r = "executing";
-                        var l = s(e, t, n);
+                          "return" === r.method && r.abrupt("return", r.arg);
+                        n = "executing";
+                        var l = c(e, t, r);
                         if ("normal" === l.type) {
                           if (
-                            ((r = n.done ? "completed" : "suspendedYield"),
+                            ((n = r.done ? "completed" : "suspendedYield"),
                             l.arg === u)
                           )
                             continue;
-                          return { value: l.arg, done: n.done };
+                          return { value: l.arg, done: r.done };
                         }
                         "throw" === l.type &&
-                          ((r = "completed"),
-                          (n.method = "throw"),
-                          (n.arg = l.arg));
+                          ((n = "completed"),
+                          (r.method = "throw"),
+                          (r.arg = l.arg));
                       }
                     };
-                  })(e, n, i)),
-                  a
+                  })(e, r, a)),
+                  i
                 );
               }
-              function s(e, t, n) {
+              function c(e, t, r) {
                 try {
-                  return { type: "normal", arg: e.call(t, n) };
+                  return { type: "normal", arg: e.call(t, r) };
                 } catch (e) {
                   return { type: "throw", arg: e };
                 }
               }
-              e.wrap = c;
+              e.wrap = s;
               var u = {};
               function l() {}
               function f() {}
@@ -200,61 +215,61 @@ System.register(["single-spa"], function(e) {
               };
               var d = Object.getPrototypeOf,
                 v = d && d(d(E([])));
-              v && v !== t && n.call(v, o) && (h = v);
+              v && v !== t && r.call(v, o) && (h = v);
               var y = (p.prototype = l.prototype = Object.create(h));
-              function g(e) {
+              function b(e) {
                 ["next", "throw", "return"].forEach(function(t) {
                   e[t] = function(e) {
                     return this._invoke(t, e);
                   };
                 });
               }
-              function m(e, t) {
-                var r;
-                this._invoke = function(o, a) {
-                  function i() {
-                    return new t(function(r, i) {
-                      !(function r(o, a, i, c) {
-                        var u = s(e[o], e, a);
+              function g(e, t) {
+                var n;
+                this._invoke = function(o, i) {
+                  function a() {
+                    return new t(function(n, a) {
+                      !(function n(o, i, a, s) {
+                        var u = c(e[o], e, i);
                         if ("throw" !== u.type) {
                           var l = u.arg,
                             f = l.value;
                           return f &&
                             "object" == typeof f &&
-                            n.call(f, "__await")
+                            r.call(f, "__await")
                             ? t.resolve(f.__await).then(
                                 function(e) {
-                                  r("next", e, i, c);
+                                  n("next", e, a, s);
                                 },
                                 function(e) {
-                                  r("throw", e, i, c);
+                                  n("throw", e, a, s);
                                 }
                               )
                             : t.resolve(f).then(
                                 function(e) {
-                                  (l.value = e), i(l);
+                                  (l.value = e), a(l);
                                 },
                                 function(e) {
-                                  return r("throw", e, i, c);
+                                  return n("throw", e, a, s);
                                 }
                               );
                         }
-                        c(u.arg);
-                      })(o, a, r, i);
+                        s(u.arg);
+                      })(o, i, n, a);
                     });
                   }
-                  return (r = r ? r.then(i, i) : i());
+                  return (n = n ? n.then(a, a) : a());
                 };
               }
-              function b(e, t) {
-                var n = e.iterator[t.method];
-                if (void 0 === n) {
+              function m(e, t) {
+                var r = e.iterator[t.method];
+                if (void 0 === r) {
                   if (((t.delegate = null), "throw" === t.method)) {
                     if (
                       e.iterator.return &&
                       ((t.method = "return"),
                       (t.arg = void 0),
-                      b(e, t),
+                      m(e, t),
                       "throw" === t.method)
                     )
                       return u;
@@ -265,15 +280,15 @@ System.register(["single-spa"], function(e) {
                   }
                   return u;
                 }
-                var r = s(n, e.iterator, t.arg);
-                if ("throw" === r.type)
+                var n = c(r, e.iterator, t.arg);
+                if ("throw" === n.type)
                   return (
                     (t.method = "throw"),
-                    (t.arg = r.arg),
+                    (t.arg = n.arg),
                     (t.delegate = null),
                     u
                   );
-                var o = r.arg;
+                var o = n.arg;
                 return o
                   ? o.done
                     ? ((t[e.resultName] = o.value),
@@ -298,7 +313,7 @@ System.register(["single-spa"], function(e) {
                 var t = e.completion || {};
                 (t.type = "normal"), delete t.arg, (e.completion = t);
               }
-              function T(e) {
+              function w(e) {
                 (this.tryEntries = [{ tryLoc: "root" }]),
                   e.forEach(_, this),
                   this.reset(!0);
@@ -309,25 +324,25 @@ System.register(["single-spa"], function(e) {
                   if (t) return t.call(e);
                   if ("function" == typeof e.next) return e;
                   if (!isNaN(e.length)) {
-                    var r = -1,
-                      a = function t() {
-                        for (; ++r < e.length; )
-                          if (n.call(e, r))
-                            return (t.value = e[r]), (t.done = !1), t;
+                    var n = -1,
+                      i = function t() {
+                        for (; ++n < e.length; )
+                          if (r.call(e, n))
+                            return (t.value = e[n]), (t.done = !1), t;
                         return (t.value = void 0), (t.done = !0), t;
                       };
-                    return (a.next = a);
+                    return (i.next = i);
                   }
                 }
-                return { next: w };
+                return { next: T };
               }
-              function w() {
+              function T() {
                 return { value: void 0, done: !0 };
               }
               return (
                 (f.prototype = y.constructor = p),
                 (p.constructor = f),
-                (p[i] = f.displayName = "GeneratorFunction"),
+                (p[a] = f.displayName = "GeneratorFunction"),
                 (e.isGeneratorFunction = function(e) {
                   var t = "function" == typeof e && e.constructor;
                   return (
@@ -341,7 +356,7 @@ System.register(["single-spa"], function(e) {
                     Object.setPrototypeOf
                       ? Object.setPrototypeOf(e, p)
                       : ((e.__proto__ = p),
-                        i in e || (e[i] = "GeneratorFunction")),
+                        a in e || (e[a] = "GeneratorFunction")),
                     (e.prototype = Object.create(y)),
                     e
                   );
@@ -349,22 +364,22 @@ System.register(["single-spa"], function(e) {
                 (e.awrap = function(e) {
                   return { __await: e };
                 }),
-                g(m.prototype),
-                (m.prototype[a] = function() {
+                b(g.prototype),
+                (g.prototype[i] = function() {
                   return this;
                 }),
-                (e.AsyncIterator = m),
-                (e.async = function(t, n, r, o, a) {
-                  void 0 === a && (a = Promise);
-                  var i = new m(c(t, n, r, o), a);
-                  return e.isGeneratorFunction(n)
-                    ? i
-                    : i.next().then(function(e) {
-                        return e.done ? e.value : i.next();
+                (e.AsyncIterator = g),
+                (e.async = function(t, r, n, o, i) {
+                  void 0 === i && (i = Promise);
+                  var a = new g(s(t, r, n, o), i);
+                  return e.isGeneratorFunction(r)
+                    ? a
+                    : a.next().then(function(e) {
+                        return e.done ? e.value : a.next();
                       });
                 }),
-                g(y),
-                (y[i] = "Generator"),
+                b(y),
+                (y[a] = "Generator"),
                 (y[o] = function() {
                   return this;
                 }),
@@ -373,21 +388,21 @@ System.register(["single-spa"], function(e) {
                 }),
                 (e.keys = function(e) {
                   var t = [];
-                  for (var n in e) t.push(n);
+                  for (var r in e) t.push(r);
                   return (
                     t.reverse(),
-                    function n() {
+                    function r() {
                       for (; t.length; ) {
-                        var r = t.pop();
-                        if (r in e) return (n.value = r), (n.done = !1), n;
+                        var n = t.pop();
+                        if (n in e) return (r.value = n), (r.done = !1), r;
                       }
-                      return (n.done = !0), n;
+                      return (r.done = !0), r;
                     }
                   );
                 }),
                 (e.values = E),
-                (T.prototype = {
-                  constructor: T,
+                (w.prototype = {
+                  constructor: w,
                   reset: function(e) {
                     if (
                       ((this.prev = 0),
@@ -402,7 +417,7 @@ System.register(["single-spa"], function(e) {
                     )
                       for (var t in this)
                         "t" === t.charAt(0) &&
-                          n.call(this, t) &&
+                          r.call(this, t) &&
                           !isNaN(+t.slice(1)) &&
                           (this[t] = void 0);
                   },
@@ -415,63 +430,63 @@ System.register(["single-spa"], function(e) {
                   dispatchException: function(e) {
                     if (this.done) throw e;
                     var t = this;
-                    function r(n, r) {
+                    function n(r, n) {
                       return (
-                        (i.type = "throw"),
-                        (i.arg = e),
-                        (t.next = n),
-                        r && ((t.method = "next"), (t.arg = void 0)),
-                        !!r
+                        (a.type = "throw"),
+                        (a.arg = e),
+                        (t.next = r),
+                        n && ((t.method = "next"), (t.arg = void 0)),
+                        !!n
                       );
                     }
                     for (var o = this.tryEntries.length - 1; o >= 0; --o) {
-                      var a = this.tryEntries[o],
-                        i = a.completion;
-                      if ("root" === a.tryLoc) return r("end");
-                      if (a.tryLoc <= this.prev) {
-                        var c = n.call(a, "catchLoc"),
-                          s = n.call(a, "finallyLoc");
-                        if (c && s) {
-                          if (this.prev < a.catchLoc) return r(a.catchLoc, !0);
-                          if (this.prev < a.finallyLoc) return r(a.finallyLoc);
-                        } else if (c) {
-                          if (this.prev < a.catchLoc) return r(a.catchLoc, !0);
+                      var i = this.tryEntries[o],
+                        a = i.completion;
+                      if ("root" === i.tryLoc) return n("end");
+                      if (i.tryLoc <= this.prev) {
+                        var s = r.call(i, "catchLoc"),
+                          c = r.call(i, "finallyLoc");
+                        if (s && c) {
+                          if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
+                          if (this.prev < i.finallyLoc) return n(i.finallyLoc);
+                        } else if (s) {
+                          if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
                         } else {
-                          if (!s)
+                          if (!c)
                             throw new Error(
                               "try statement without catch or finally"
                             );
-                          if (this.prev < a.finallyLoc) return r(a.finallyLoc);
+                          if (this.prev < i.finallyLoc) return n(i.finallyLoc);
                         }
                       }
                     }
                   },
                   abrupt: function(e, t) {
-                    for (var r = this.tryEntries.length - 1; r >= 0; --r) {
-                      var o = this.tryEntries[r];
+                    for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+                      var o = this.tryEntries[n];
                       if (
                         o.tryLoc <= this.prev &&
-                        n.call(o, "finallyLoc") &&
+                        r.call(o, "finallyLoc") &&
                         this.prev < o.finallyLoc
                       ) {
-                        var a = o;
+                        var i = o;
                         break;
                       }
                     }
-                    a &&
+                    i &&
                       ("break" === e || "continue" === e) &&
-                      a.tryLoc <= t &&
-                      t <= a.finallyLoc &&
-                      (a = null);
-                    var i = a ? a.completion : {};
+                      i.tryLoc <= t &&
+                      t <= i.finallyLoc &&
+                      (i = null);
+                    var a = i ? i.completion : {};
                     return (
-                      (i.type = e),
-                      (i.arg = t),
-                      a
+                      (a.type = e),
+                      (a.arg = t),
+                      i
                         ? ((this.method = "next"),
-                          (this.next = a.finallyLoc),
+                          (this.next = i.finallyLoc),
                           u)
-                        : this.complete(i)
+                        : this.complete(a)
                     );
                   },
                   complete: function(e, t) {
@@ -489,31 +504,31 @@ System.register(["single-spa"], function(e) {
                   },
                   finish: function(e) {
                     for (var t = this.tryEntries.length - 1; t >= 0; --t) {
-                      var n = this.tryEntries[t];
-                      if (n.finallyLoc === e)
-                        return this.complete(n.completion, n.afterLoc), k(n), u;
+                      var r = this.tryEntries[t];
+                      if (r.finallyLoc === e)
+                        return this.complete(r.completion, r.afterLoc), k(r), u;
                     }
                   },
                   catch: function(e) {
                     for (var t = this.tryEntries.length - 1; t >= 0; --t) {
-                      var n = this.tryEntries[t];
-                      if (n.tryLoc === e) {
-                        var r = n.completion;
-                        if ("throw" === r.type) {
-                          var o = r.arg;
-                          k(n);
+                      var r = this.tryEntries[t];
+                      if (r.tryLoc === e) {
+                        var n = r.completion;
+                        if ("throw" === n.type) {
+                          var o = n.arg;
+                          k(r);
                         }
                         return o;
                       }
                     }
                     throw new Error("illegal catch attempt");
                   },
-                  delegateYield: function(e, t, n) {
+                  delegateYield: function(e, t, r) {
                     return (
                       (this.delegate = {
                         iterator: E(e),
                         resultName: t,
-                        nextLoc: n
+                        nextLoc: r
                       }),
                       "next" === this.method && (this.arg = void 0),
                       u
@@ -524,20 +539,20 @@ System.register(["single-spa"], function(e) {
               );
             })(e.exports);
             try {
-              regeneratorRuntime = r;
+              regeneratorRuntime = n;
             } catch (e) {
-              Function("r", "regeneratorRuntime = r")(r);
+              Function("r", "regeneratorRuntime = r")(n);
             }
           },
-          function(e, t, n) {
-            (function(r) {
-              var o, a;
+          function(e, t, r) {
+            (function(n) {
+              var o, i;
               /**
                * @license Angular v9.1.0-next.4+61.sha-e552591.with-local-changes
                * (c) 2010-2020 Google LLC. https://angular.io/
                * License: MIT
                */ void 0 ===
-                (a =
+                (i =
                   "function" ==
                   typeof (o = function() {
                     "use strict";
@@ -549,24 +564,24 @@ System.register(["single-spa"], function(e) {
                      * found in the LICENSE file at https://angular.io/license
                      */ !(function(e) {
                       var t = e.performance;
-                      function n(e) {
+                      function r(e) {
                         t && t.mark && t.mark(e);
                       }
-                      function r(e, n) {
-                        t && t.measure && t.measure(e, n);
+                      function n(e, r) {
+                        t && t.measure && t.measure(e, r);
                       }
-                      n("Zone");
+                      r("Zone");
                       var o = e.__Zone_symbol_prefix || "__zone_symbol__";
-                      function a(e) {
+                      function i(e) {
                         return o + e;
                       }
-                      var i = !0 === e[a("forceDuplicateZoneCheck")];
+                      var a = !0 === e[i("forceDuplicateZoneCheck")];
                       if (e.Zone) {
-                        if (i || "function" != typeof e.Zone.__symbol__)
+                        if (a || "function" != typeof e.Zone.__symbol__)
                           throw new Error("Zone already loaded.");
                         return e.Zone;
                       }
-                      var c = (function() {
+                      var s = (function() {
                         function t(e, t) {
                           (this._parent = e),
                             (this._name = t ? t.name || "unnamed" : "<root>"),
@@ -594,24 +609,24 @@ System.register(["single-spa"], function(e) {
                           }),
                           Object.defineProperty(t, "current", {
                             get: function() {
-                              return C.zone;
+                              return Z.zone;
                             },
                             enumerable: !0,
                             configurable: !0
                           }),
                           Object.defineProperty(t, "currentTask", {
                             get: function() {
-                              return x;
+                              return C;
                             },
                             enumerable: !0,
                             configurable: !0
                           }),
-                          (t.__load_patch = function(o, a) {
+                          (t.__load_patch = function(o, i) {
                             if (D.hasOwnProperty(o)) {
-                              if (i) throw Error("Already loaded patch: " + o);
+                              if (a) throw Error("Already loaded patch: " + o);
                             } else if (!e["__Zone_disable_" + o]) {
-                              var c = "Zone:" + o;
-                              n(c), (D[o] = a(e, t, j)), r(c, c);
+                              var s = "Zone:" + o;
+                              r(s), (D[o] = i(e, t, x)), n(s, s);
                             }
                           }),
                           Object.defineProperty(t.prototype, "parent", {
@@ -646,63 +661,63 @@ System.register(["single-spa"], function(e) {
                           (t.prototype.wrap = function(e, t) {
                             if ("function" != typeof e)
                               throw new Error("Expecting function got: " + e);
-                            var n = this._zoneDelegate.intercept(this, e, t),
-                              r = this;
+                            var r = this._zoneDelegate.intercept(this, e, t),
+                              n = this;
                             return function() {
-                              return r.runGuarded(n, this, arguments, t);
+                              return n.runGuarded(r, this, arguments, t);
                             };
                           }),
-                          (t.prototype.run = function(e, t, n, r) {
-                            C = { parent: C, zone: this };
+                          (t.prototype.run = function(e, t, r, n) {
+                            Z = { parent: Z, zone: this };
                             try {
                               return this._zoneDelegate.invoke(
                                 this,
                                 e,
                                 t,
-                                n,
-                                r
+                                r,
+                                n
                               );
                             } finally {
-                              C = C.parent;
+                              Z = Z.parent;
                             }
                           }),
-                          (t.prototype.runGuarded = function(e, t, n, r) {
+                          (t.prototype.runGuarded = function(e, t, r, n) {
                             void 0 === t && (t = null),
-                              (C = { parent: C, zone: this });
+                              (Z = { parent: Z, zone: this });
                             try {
                               try {
                                 return this._zoneDelegate.invoke(
                                   this,
                                   e,
                                   t,
-                                  n,
-                                  r
+                                  r,
+                                  n
                                 );
                               } catch (e) {
                                 if (this._zoneDelegate.handleError(this, e))
                                   throw e;
                               }
                             } finally {
-                              C = C.parent;
+                              Z = Z.parent;
                             }
                           }),
-                          (t.prototype.runTask = function(e, t, n) {
+                          (t.prototype.runTask = function(e, t, r) {
                             if (e.zone != this)
                               throw new Error(
                                 "A task can only be run in the zone of creation! (Creation: " +
-                                  (e.zone || b).name +
+                                  (e.zone || m).name +
                                   "; Execution: " +
                                   this.name +
                                   ")"
                               );
                             if (
                               e.state !== _ ||
-                              (e.type !== Z && e.type !== P)
+                              (e.type !== j && e.type !== P)
                             ) {
-                              var r = e.state != E;
-                              r && e._transitionTo(E, T), e.runCount++;
-                              var o = x;
-                              (x = e), (C = { parent: C, zone: this });
+                              var n = e.state != E;
+                              n && e._transitionTo(E, w), e.runCount++;
+                              var o = C;
+                              (C = e), (Z = { parent: Z, zone: this });
                               try {
                                 e.type == P &&
                                   e.data &&
@@ -713,7 +728,7 @@ System.register(["single-spa"], function(e) {
                                     this,
                                     e,
                                     t,
-                                    n
+                                    r
                                   );
                                 } catch (e) {
                                   if (this._zoneDelegate.handleError(this, e))
@@ -722,13 +737,13 @@ System.register(["single-spa"], function(e) {
                               } finally {
                                 e.state !== _ &&
                                   e.state !== S &&
-                                  (e.type == Z || (e.data && e.data.isPeriodic)
-                                    ? r && e._transitionTo(T, E)
+                                  (e.type == j || (e.data && e.data.isPeriodic)
+                                    ? n && e._transitionTo(w, E)
                                     : ((e.runCount = 0),
                                       this._updateTaskCount(e, -1),
-                                      r && e._transitionTo(_, E, _))),
-                                  (C = C.parent),
-                                  (x = o);
+                                      n && e._transitionTo(_, E, _))),
+                                  (Z = Z.parent),
+                                  (C = o);
                               }
                             }
                           }),
@@ -745,8 +760,8 @@ System.register(["single-spa"], function(e) {
                                 t = t.parent;
                               }
                             e._transitionTo(k, _);
-                            var n = [];
-                            (e._zoneDelegates = n), (e._zone = this);
+                            var r = [];
+                            (e._zoneDelegates = r), (e._zone = this);
                             try {
                               e = this._zoneDelegate.scheduleTask(this, e);
                             } catch (t) {
@@ -755,92 +770,92 @@ System.register(["single-spa"], function(e) {
                               t);
                             }
                             return (
-                              e._zoneDelegates === n &&
+                              e._zoneDelegates === r &&
                                 this._updateTaskCount(e, 1),
-                              e.state == k && e._transitionTo(T, k),
+                              e.state == k && e._transitionTo(w, k),
                               e
                             );
                           }),
                           (t.prototype.scheduleMicroTask = function(
                             e,
                             t,
-                            n,
-                            r
+                            r,
+                            n
                           ) {
                             return this.scheduleTask(
-                              new f(O, e, t, n, r, void 0)
+                              new f(O, e, t, r, n, void 0)
                             );
                           }),
                           (t.prototype.scheduleMacroTask = function(
                             e,
                             t,
-                            n,
                             r,
+                            n,
                             o
                           ) {
-                            return this.scheduleTask(new f(P, e, t, n, r, o));
+                            return this.scheduleTask(new f(P, e, t, r, n, o));
                           }),
                           (t.prototype.scheduleEventTask = function(
                             e,
                             t,
-                            n,
                             r,
+                            n,
                             o
                           ) {
-                            return this.scheduleTask(new f(Z, e, t, n, r, o));
+                            return this.scheduleTask(new f(j, e, t, r, n, o));
                           }),
                           (t.prototype.cancelTask = function(e) {
                             if (e.zone != this)
                               throw new Error(
                                 "A task can only be cancelled in the zone of creation! (Creation: " +
-                                  (e.zone || b).name +
+                                  (e.zone || m).name +
                                   "; Execution: " +
                                   this.name +
                                   ")"
                               );
-                            e._transitionTo(w, T, E);
+                            e._transitionTo(T, w, E);
                             try {
                               this._zoneDelegate.cancelTask(this, e);
                             } catch (t) {
-                              throw (e._transitionTo(S, w),
+                              throw (e._transitionTo(S, T),
                               this._zoneDelegate.handleError(this, t),
                               t);
                             }
                             return (
                               this._updateTaskCount(e, -1),
-                              e._transitionTo(_, w),
+                              e._transitionTo(_, T),
                               (e.runCount = 0),
                               e
                             );
                           }),
                           (t.prototype._updateTaskCount = function(e, t) {
-                            var n = e._zoneDelegates;
+                            var r = e._zoneDelegates;
                             -1 == t && (e._zoneDelegates = null);
-                            for (var r = 0; r < n.length; r++)
-                              n[r]._updateTaskCount(e.type, t);
+                            for (var n = 0; n < r.length; n++)
+                              r[n]._updateTaskCount(e.type, t);
                           }),
                           t
                         );
                       })();
-                      c.__symbol__ = a;
-                      var s,
+                      s.__symbol__ = i;
+                      var c,
                         u = {
                           name: "",
-                          onHasTask: function(e, t, n, r) {
-                            return e.hasTask(n, r);
+                          onHasTask: function(e, t, r, n) {
+                            return e.hasTask(r, n);
                           },
-                          onScheduleTask: function(e, t, n, r) {
-                            return e.scheduleTask(n, r);
+                          onScheduleTask: function(e, t, r, n) {
+                            return e.scheduleTask(r, n);
                           },
-                          onInvokeTask: function(e, t, n, r, o, a) {
-                            return e.invokeTask(n, r, o, a);
+                          onInvokeTask: function(e, t, r, n, o, i) {
+                            return e.invokeTask(r, n, o, i);
                           },
-                          onCancelTask: function(e, t, n, r) {
-                            return e.cancelTask(n, r);
+                          onCancelTask: function(e, t, r, n) {
+                            return e.cancelTask(r, n);
                           }
                         },
                         l = (function() {
-                          function e(e, t, n) {
+                          function e(e, t, r) {
                             (this._taskCounts = {
                               microTask: 0,
                               macroTask: 0,
@@ -849,86 +864,86 @@ System.register(["single-spa"], function(e) {
                               (this.zone = e),
                               (this._parentDelegate = t),
                               (this._forkZS =
-                                n && (n && n.onFork ? n : t._forkZS)),
+                                r && (r && r.onFork ? r : t._forkZS)),
                               (this._forkDlgt =
-                                n && (n.onFork ? t : t._forkDlgt)),
+                                r && (r.onFork ? t : t._forkDlgt)),
                               (this._forkCurrZone =
-                                n && (n.onFork ? this.zone : t._forkCurrZone)),
+                                r && (r.onFork ? this.zone : t._forkCurrZone)),
                               (this._interceptZS =
-                                n && (n.onIntercept ? n : t._interceptZS)),
+                                r && (r.onIntercept ? r : t._interceptZS)),
                               (this._interceptDlgt =
-                                n && (n.onIntercept ? t : t._interceptDlgt)),
+                                r && (r.onIntercept ? t : t._interceptDlgt)),
                               (this._interceptCurrZone =
-                                n &&
-                                (n.onIntercept
+                                r &&
+                                (r.onIntercept
                                   ? this.zone
                                   : t._interceptCurrZone)),
                               (this._invokeZS =
-                                n && (n.onInvoke ? n : t._invokeZS)),
+                                r && (r.onInvoke ? r : t._invokeZS)),
                               (this._invokeDlgt =
-                                n && (n.onInvoke ? t : t._invokeDlgt)),
+                                r && (r.onInvoke ? t : t._invokeDlgt)),
                               (this._invokeCurrZone =
-                                n &&
-                                (n.onInvoke ? this.zone : t._invokeCurrZone)),
+                                r &&
+                                (r.onInvoke ? this.zone : t._invokeCurrZone)),
                               (this._handleErrorZS =
-                                n && (n.onHandleError ? n : t._handleErrorZS)),
+                                r && (r.onHandleError ? r : t._handleErrorZS)),
                               (this._handleErrorDlgt =
-                                n &&
-                                (n.onHandleError ? t : t._handleErrorDlgt)),
+                                r &&
+                                (r.onHandleError ? t : t._handleErrorDlgt)),
                               (this._handleErrorCurrZone =
-                                n &&
-                                (n.onHandleError
+                                r &&
+                                (r.onHandleError
                                   ? this.zone
                                   : t._handleErrorCurrZone)),
                               (this._scheduleTaskZS =
-                                n &&
-                                (n.onScheduleTask ? n : t._scheduleTaskZS)),
+                                r &&
+                                (r.onScheduleTask ? r : t._scheduleTaskZS)),
                               (this._scheduleTaskDlgt =
-                                n &&
-                                (n.onScheduleTask ? t : t._scheduleTaskDlgt)),
+                                r &&
+                                (r.onScheduleTask ? t : t._scheduleTaskDlgt)),
                               (this._scheduleTaskCurrZone =
-                                n &&
-                                (n.onScheduleTask
+                                r &&
+                                (r.onScheduleTask
                                   ? this.zone
                                   : t._scheduleTaskCurrZone)),
                               (this._invokeTaskZS =
-                                n && (n.onInvokeTask ? n : t._invokeTaskZS)),
+                                r && (r.onInvokeTask ? r : t._invokeTaskZS)),
                               (this._invokeTaskDlgt =
-                                n && (n.onInvokeTask ? t : t._invokeTaskDlgt)),
+                                r && (r.onInvokeTask ? t : t._invokeTaskDlgt)),
                               (this._invokeTaskCurrZone =
-                                n &&
-                                (n.onInvokeTask
+                                r &&
+                                (r.onInvokeTask
                                   ? this.zone
                                   : t._invokeTaskCurrZone)),
                               (this._cancelTaskZS =
-                                n && (n.onCancelTask ? n : t._cancelTaskZS)),
+                                r && (r.onCancelTask ? r : t._cancelTaskZS)),
                               (this._cancelTaskDlgt =
-                                n && (n.onCancelTask ? t : t._cancelTaskDlgt)),
+                                r && (r.onCancelTask ? t : t._cancelTaskDlgt)),
                               (this._cancelTaskCurrZone =
-                                n &&
-                                (n.onCancelTask
+                                r &&
+                                (r.onCancelTask
                                   ? this.zone
                                   : t._cancelTaskCurrZone)),
                               (this._hasTaskZS = null),
                               (this._hasTaskDlgt = null),
                               (this._hasTaskDlgtOwner = null),
                               (this._hasTaskCurrZone = null);
-                            var r = n && n.onHasTask,
+                            var n = r && r.onHasTask,
                               o = t && t._hasTaskZS;
-                            (r || o) &&
-                              ((this._hasTaskZS = r ? n : u),
+                            (n || o) &&
+                              ((this._hasTaskZS = n ? r : u),
                               (this._hasTaskDlgt = t),
                               (this._hasTaskDlgtOwner = this),
                               (this._hasTaskCurrZone = e),
-                              n.onScheduleTask ||
+                              r.onScheduleTask ||
                                 ((this._scheduleTaskZS = u),
                                 (this._scheduleTaskDlgt = t),
                                 (this._scheduleTaskCurrZone = this.zone)),
-                              n.onInvokeTask ||
+                              r.onInvokeTask ||
                                 ((this._invokeTaskZS = u),
                                 (this._invokeTaskDlgt = t),
                                 (this._invokeTaskCurrZone = this.zone)),
-                              n.onCancelTask ||
+                              r.onCancelTask ||
                                 ((this._cancelTaskZS = u),
                                 (this._cancelTaskDlgt = t),
                                 (this._cancelTaskCurrZone = this.zone)));
@@ -942,31 +957,31 @@ System.register(["single-spa"], function(e) {
                                     e,
                                     t
                                   )
-                                : new c(e, t);
+                                : new s(e, t);
                             }),
-                            (e.prototype.intercept = function(e, t, n) {
+                            (e.prototype.intercept = function(e, t, r) {
                               return this._interceptZS
                                 ? this._interceptZS.onIntercept(
                                     this._interceptDlgt,
                                     this._interceptCurrZone,
                                     e,
                                     t,
-                                    n
+                                    r
                                   )
                                 : t;
                             }),
-                            (e.prototype.invoke = function(e, t, n, r, o) {
+                            (e.prototype.invoke = function(e, t, r, n, o) {
                               return this._invokeZS
                                 ? this._invokeZS.onInvoke(
                                     this._invokeDlgt,
                                     this._invokeCurrZone,
                                     e,
                                     t,
-                                    n,
                                     r,
+                                    n,
                                     o
                                   )
-                                : t.apply(n, r);
+                                : t.apply(r, n);
                             }),
                             (e.prototype.handleError = function(e, t) {
                               return (
@@ -980,42 +995,42 @@ System.register(["single-spa"], function(e) {
                               );
                             }),
                             (e.prototype.scheduleTask = function(e, t) {
-                              var n = t;
+                              var r = t;
                               if (this._scheduleTaskZS)
                                 this._hasTaskZS &&
-                                  n._zoneDelegates.push(this._hasTaskDlgtOwner),
-                                  (n = this._scheduleTaskZS.onScheduleTask(
+                                  r._zoneDelegates.push(this._hasTaskDlgtOwner),
+                                  (r = this._scheduleTaskZS.onScheduleTask(
                                     this._scheduleTaskDlgt,
                                     this._scheduleTaskCurrZone,
                                     e,
                                     t
-                                  )) || (n = t);
+                                  )) || (r = t);
                               else if (t.scheduleFn) t.scheduleFn(t);
                               else {
                                 if (t.type != O)
                                   throw new Error(
                                     "Task is missing scheduleFn."
                                   );
-                                g(t);
+                                b(t);
                               }
-                              return n;
+                              return r;
                             }),
-                            (e.prototype.invokeTask = function(e, t, n, r) {
+                            (e.prototype.invokeTask = function(e, t, r, n) {
                               return this._invokeTaskZS
                                 ? this._invokeTaskZS.onInvokeTask(
                                     this._invokeTaskDlgt,
                                     this._invokeTaskCurrZone,
                                     e,
                                     t,
-                                    n,
-                                    r
+                                    r,
+                                    n
                                   )
-                                : t.callback.apply(n, r);
+                                : t.callback.apply(r, n);
                             }),
                             (e.prototype.cancelTask = function(e, t) {
-                              var n;
+                              var r;
                               if (this._cancelTaskZS)
-                                n = this._cancelTaskZS.onCancelTask(
+                                r = this._cancelTaskZS.onCancelTask(
                                   this._cancelTaskDlgt,
                                   this._cancelTaskCurrZone,
                                   e,
@@ -1024,9 +1039,9 @@ System.register(["single-spa"], function(e) {
                               else {
                                 if (!t.cancelFn)
                                   throw Error("Task is not cancelable");
-                                n = t.cancelFn(t);
+                                r = t.cancelFn(t);
                               }
-                              return n;
+                              return r;
                             }),
                             (e.prototype.hasTask = function(e, t) {
                               try {
@@ -1042,61 +1057,61 @@ System.register(["single-spa"], function(e) {
                               }
                             }),
                             (e.prototype._updateTaskCount = function(e, t) {
-                              var n = this._taskCounts,
-                                r = n[e],
-                                o = (n[e] = r + t);
+                              var r = this._taskCounts,
+                                n = r[e],
+                                o = (r[e] = n + t);
                               if (o < 0)
                                 throw new Error(
                                   "More tasks executed then were scheduled."
                                 );
-                              if (0 == r || 0 == o) {
-                                var a = {
-                                  microTask: n.microTask > 0,
-                                  macroTask: n.macroTask > 0,
-                                  eventTask: n.eventTask > 0,
+                              if (0 == n || 0 == o) {
+                                var i = {
+                                  microTask: r.microTask > 0,
+                                  macroTask: r.macroTask > 0,
+                                  eventTask: r.eventTask > 0,
                                   change: e
                                 };
-                                this.hasTask(this.zone, a);
+                                this.hasTask(this.zone, i);
                               }
                             }),
                             e
                           );
                         })(),
                         f = (function() {
-                          function t(n, r, o, a, i, c) {
+                          function t(r, n, o, i, a, s) {
                             if (
                               ((this._zone = null),
                               (this.runCount = 0),
                               (this._zoneDelegates = null),
                               (this._state = "notScheduled"),
-                              (this.type = n),
-                              (this.source = r),
-                              (this.data = a),
-                              (this.scheduleFn = i),
-                              (this.cancelFn = c),
+                              (this.type = r),
+                              (this.source = n),
+                              (this.data = i),
+                              (this.scheduleFn = a),
+                              (this.cancelFn = s),
                               !o)
                             )
                               throw new Error("callback is not defined");
                             this.callback = o;
-                            var s = this;
-                            n === Z && a && a.useG
+                            var c = this;
+                            r === j && i && i.useG
                               ? (this.invoke = t.invokeTask)
                               : (this.invoke = function() {
                                   return t.invokeTask.call(
                                     e,
-                                    s,
+                                    c,
                                     this,
                                     arguments
                                   );
                                 });
                           }
                           return (
-                            (t.invokeTask = function(e, t, n) {
+                            (t.invokeTask = function(e, t, r) {
                               e || (e = this), L++;
                               try {
-                                return e.runCount++, e.zone.runTask(e, t, n);
+                                return e.runCount++, e.zone.runTask(e, t, r);
                               } finally {
-                                1 == L && m(), L--;
+                                1 == L && g(), L--;
                               }
                             }),
                             Object.defineProperty(t.prototype, "zone", {
@@ -1116,8 +1131,8 @@ System.register(["single-spa"], function(e) {
                             (t.prototype.cancelScheduleRequest = function() {
                               this._transitionTo(_, k);
                             }),
-                            (t.prototype._transitionTo = function(e, t, n) {
-                              if (this._state !== t && this._state !== n)
+                            (t.prototype._transitionTo = function(e, t, r) {
+                              if (this._state !== t && this._state !== r)
                                 throw new Error(
                                   this.type +
                                     " '" +
@@ -1127,7 +1142,7 @@ System.register(["single-spa"], function(e) {
                                     "', expecting state '" +
                                     t +
                                     "'" +
-                                    (n ? " or '" + n + "'" : "") +
+                                    (r ? " or '" + r + "'" : "") +
                                     ", was '" +
                                     this._state +
                                     "'."
@@ -1152,57 +1167,57 @@ System.register(["single-spa"], function(e) {
                             t
                           );
                         })(),
-                        p = a("setTimeout"),
-                        h = a("Promise"),
-                        d = a("then"),
+                        p = i("setTimeout"),
+                        h = i("Promise"),
+                        d = i("then"),
                         v = [],
                         y = !1;
-                      function g(t) {
+                      function b(t) {
                         if (0 === L && 0 === v.length)
-                          if ((s || (e[h] && (s = e[h].resolve(0))), s)) {
-                            var n = s[d];
-                            n || (n = s.then), n.call(s, m);
-                          } else e[p](m, 0);
+                          if ((c || (e[h] && (c = e[h].resolve(0))), c)) {
+                            var r = c[d];
+                            r || (r = c.then), r.call(c, g);
+                          } else e[p](g, 0);
                         t && v.push(t);
                       }
-                      function m() {
+                      function g() {
                         if (!y) {
                           for (y = !0; v.length; ) {
                             var e = v;
                             v = [];
                             for (var t = 0; t < e.length; t++) {
-                              var n = e[t];
+                              var r = e[t];
                               try {
-                                n.zone.runTask(n, null, null);
+                                r.zone.runTask(r, null, null);
                               } catch (e) {
-                                j.onUnhandledError(e);
+                                x.onUnhandledError(e);
                               }
                             }
                           }
-                          j.microtaskDrainDone(), (y = !1);
+                          x.microtaskDrainDone(), (y = !1);
                         }
                       }
-                      var b = { name: "NO ZONE" },
+                      var m = { name: "NO ZONE" },
                         _ = "notScheduled",
                         k = "scheduling",
-                        T = "scheduled",
+                        w = "scheduled",
                         E = "running",
-                        w = "canceling",
+                        T = "canceling",
                         S = "unknown",
                         O = "microTask",
                         P = "macroTask",
-                        Z = "eventTask",
+                        j = "eventTask",
                         D = {},
-                        j = {
-                          symbol: a,
+                        x = {
+                          symbol: i,
                           currentZoneFrame: function() {
-                            return C;
+                            return Z;
                           },
                           onUnhandledError: z,
                           microtaskDrainDone: z,
-                          scheduleMicroTask: g,
+                          scheduleMicroTask: b,
                           showUncaughtError: function() {
-                            return !c[a("ignoreConsoleErrorUncaughtError")];
+                            return !s[i("ignoreConsoleErrorUncaughtError")];
                           },
                           patchEventTarget: function() {
                             return [];
@@ -1223,7 +1238,7 @@ System.register(["single-spa"], function(e) {
                           setNativePromise: function(e) {
                             e &&
                               "function" == typeof e.resolve &&
-                              (s = e.resolve(0));
+                              (c = e.resolve(0));
                           },
                           patchEventPrototype: function() {
                             return z;
@@ -1259,15 +1274,15 @@ System.register(["single-spa"], function(e) {
                             return z;
                           }
                         },
-                        C = { parent: null, zone: new c(null, null) },
-                        x = null,
+                        Z = { parent: null, zone: new s(null, null) },
+                        C = null,
                         L = 0;
                       function z() {}
-                      r("Zone", "Zone"), (e.Zone = c);
+                      n("Zone", "Zone"), (e.Zone = s);
                     })(
                       ("undefined" != typeof window && window) ||
                         ("undefined" != typeof self && self) ||
-                        r
+                        n
                     ),
                       /**
                        * @license
@@ -1276,18 +1291,18 @@ System.register(["single-spa"], function(e) {
                        * Use of this source code is governed by an MIT-style license that can be
                        * found in the LICENSE file at https://angular.io/license
                        */
-                      Zone.__load_patch("ZoneAwarePromise", function(e, t, n) {
-                        var r = Object.getOwnPropertyDescriptor,
+                      Zone.__load_patch("ZoneAwarePromise", function(e, t, r) {
+                        var n = Object.getOwnPropertyDescriptor,
                           o = Object.defineProperty,
-                          a = n.symbol,
-                          i = [],
-                          c =
+                          i = r.symbol,
+                          a = [],
+                          s =
                             !0 ===
-                            e[a("DISABLE_WRAPPING_UNCAUGHT_PROMISE_REJECTION")],
-                          s = a("Promise"),
-                          u = a("then");
-                        (n.onUnhandledError = function(e) {
-                          if (n.showUncaughtError()) {
+                            e[i("DISABLE_WRAPPING_UNCAUGHT_PROMISE_REJECTION")],
+                          c = i("Promise"),
+                          u = i("then");
+                        (r.onUnhandledError = function(e) {
+                          if (r.showUncaughtError()) {
                             var t = e && e.rejection;
                             t
                               ? console.error(
@@ -1304,30 +1319,30 @@ System.register(["single-spa"], function(e) {
                               : console.error(e);
                           }
                         }),
-                          (n.microtaskDrainDone = function() {
+                          (r.microtaskDrainDone = function() {
                             for (
                               var e = function() {
-                                var e = i.shift();
+                                var e = a.shift();
                                 try {
                                   e.zone.runGuarded(function() {
                                     throw e;
                                   });
                                 } catch (e) {
                                   !(function(e) {
-                                    n.onUnhandledError(e);
+                                    r.onUnhandledError(e);
                                     try {
-                                      var r = t[l];
-                                      "function" == typeof r && r.call(this, e);
+                                      var n = t[l];
+                                      "function" == typeof n && n.call(this, e);
                                     } catch (e) {}
                                   })(e);
                                 }
                               };
-                              i.length;
+                              a.length;
 
                             )
                               e();
                           });
-                        var l = a("unhandledPromiseRejectionHandler");
+                        var l = i("unhandledPromiseRejectionHandler");
                         function f(e) {
                           return e && e.then;
                         }
@@ -1337,38 +1352,38 @@ System.register(["single-spa"], function(e) {
                         function h(e) {
                           return O.reject(e);
                         }
-                        var d = a("state"),
-                          v = a("value"),
-                          y = a("finally"),
-                          g = a("parentPromiseValue"),
-                          m = a("parentPromiseState");
-                        function b(e, t) {
-                          return function(n) {
+                        var d = i("state"),
+                          v = i("value"),
+                          y = i("finally"),
+                          b = i("parentPromiseValue"),
+                          g = i("parentPromiseState");
+                        function m(e, t) {
+                          return function(r) {
                             try {
-                              k(e, t, n);
+                              k(e, t, r);
                             } catch (t) {
                               k(e, !1, t);
                             }
                           };
                         }
-                        var _ = a("currentTaskTrace");
-                        function k(e, r, a) {
-                          var s,
+                        var _ = i("currentTaskTrace");
+                        function k(e, n, i) {
+                          var c,
                             u =
-                              ((s = !1),
+                              ((c = !1),
                               function(e) {
                                 return function() {
-                                  s || ((s = !0), e.apply(null, arguments));
+                                  c || ((c = !0), e.apply(null, arguments));
                                 };
                               });
-                          if (e === a)
+                          if (e === i)
                             throw new TypeError("Promise resolved with itself");
                           if (null === e[d]) {
                             var l = null;
                             try {
-                              ("object" != typeof a &&
-                                "function" != typeof a) ||
-                                (l = a && a.then);
+                              ("object" != typeof i &&
+                                "function" != typeof i) ||
+                                (l = i && i.then);
                             } catch (t) {
                               return (
                                 u(function() {
@@ -1378,37 +1393,37 @@ System.register(["single-spa"], function(e) {
                               );
                             }
                             if (
-                              !1 !== r &&
-                              a instanceof O &&
-                              a.hasOwnProperty(d) &&
-                              a.hasOwnProperty(v) &&
-                              null !== a[d]
+                              !1 !== n &&
+                              i instanceof O &&
+                              i.hasOwnProperty(d) &&
+                              i.hasOwnProperty(v) &&
+                              null !== i[d]
                             )
-                              E(a), k(e, a[d], a[v]);
-                            else if (!1 !== r && "function" == typeof l)
+                              E(i), k(e, i[d], i[v]);
+                            else if (!1 !== n && "function" == typeof l)
                               try {
-                                l.call(a, u(b(e, r)), u(b(e, !1)));
+                                l.call(i, u(m(e, n)), u(m(e, !1)));
                               } catch (t) {
                                 u(function() {
                                   k(e, !1, t);
                                 })();
                               }
                             else {
-                              e[d] = r;
+                              e[d] = n;
                               var f = e[v];
                               if (
-                                ((e[v] = a),
+                                ((e[v] = i),
                                 e[y] === y &&
-                                  !0 === r &&
-                                  ((e[d] = e[m]), (e[v] = e[g])),
-                                !1 === r && a instanceof Error)
+                                  !0 === n &&
+                                  ((e[d] = e[g]), (e[v] = e[b])),
+                                !1 === n && i instanceof Error)
                               ) {
                                 var p =
                                   t.currentTask &&
                                   t.currentTask.data &&
                                   t.currentTask.data.__creationTrace__;
                                 p &&
-                                  o(a, _, {
+                                  o(i, _, {
                                     configurable: !0,
                                     enumerable: !1,
                                     writable: !0,
@@ -1416,11 +1431,11 @@ System.register(["single-spa"], function(e) {
                                   });
                               }
                               for (var h = 0; h < f.length; )
-                                w(e, f[h++], f[h++], f[h++], f[h++]);
-                              if (0 == f.length && 0 == r) {
+                                T(e, f[h++], f[h++], f[h++], f[h++]);
+                              if (0 == f.length && 0 == n) {
                                 e[d] = 0;
-                                var T = a;
-                                if (!c)
+                                var w = i;
+                                if (!s)
                                   try {
                                     throw new Error(
                                       "Uncaught (in promise): " +
@@ -1442,43 +1457,43 @@ System.register(["single-spa"], function(e) {
                                           return e
                                             ? e.toString()
                                             : Object.prototype.toString.call(e);
-                                        })(a) +
-                                        (a && a.stack ? "\n" + a.stack : "")
+                                        })(i) +
+                                        (i && i.stack ? "\n" + i.stack : "")
                                     );
                                   } catch (e) {
-                                    T = e;
+                                    w = e;
                                   }
-                                (T.rejection = a),
-                                  (T.promise = e),
-                                  (T.zone = t.current),
-                                  (T.task = t.currentTask),
-                                  i.push(T),
-                                  n.scheduleMicroTask();
+                                (w.rejection = i),
+                                  (w.promise = e),
+                                  (w.zone = t.current),
+                                  (w.task = t.currentTask),
+                                  a.push(w),
+                                  r.scheduleMicroTask();
                               }
                             }
                           }
                           return e;
                         }
-                        var T = a("rejectionHandledHandler");
+                        var w = i("rejectionHandledHandler");
                         function E(e) {
                           if (0 === e[d]) {
                             try {
-                              var n = t[T];
-                              n &&
-                                "function" == typeof n &&
-                                n.call(this, { rejection: e[v], promise: e });
+                              var r = t[w];
+                              r &&
+                                "function" == typeof r &&
+                                r.call(this, { rejection: e[v], promise: e });
                             } catch (e) {}
                             e[d] = !1;
-                            for (var r = 0; r < i.length; r++)
-                              e === i[r].promise && i.splice(r, 1);
+                            for (var n = 0; n < a.length; n++)
+                              e === a[n].promise && a.splice(n, 1);
                           }
                         }
-                        function w(e, t, n, r, o) {
+                        function T(e, t, r, n, o) {
                           E(e);
-                          var a = e[d],
-                            i = a
-                              ? "function" == typeof r
-                                ? r
+                          var i = e[d],
+                            a = i
+                              ? "function" == typeof n
+                                ? n
                                 : p
                               : "function" == typeof o
                               ? o
@@ -1487,20 +1502,20 @@ System.register(["single-spa"], function(e) {
                             "Promise.then",
                             function() {
                               try {
-                                var r = e[v],
-                                  o = !!n && y === n[y];
-                                o && ((n[g] = r), (n[m] = a));
-                                var c = t.run(
-                                  i,
+                                var n = e[v],
+                                  o = !!r && y === r[y];
+                                o && ((r[b] = n), (r[g] = i));
+                                var s = t.run(
+                                  a,
                                   void 0,
-                                  o && i !== h && i !== p ? [] : [r]
+                                  o && a !== h && a !== p ? [] : [n]
                                 );
-                                k(n, !0, c);
+                                k(r, !0, s);
                               } catch (e) {
-                                k(n, !1, e);
+                                k(r, !1, e);
                               }
                             },
-                            n
+                            r
                           );
                         }
                         var S = function() {},
@@ -1512,7 +1527,7 @@ System.register(["single-spa"], function(e) {
                                 );
                               (this[d] = null), (this[v] = []);
                               try {
-                                t && t(b(this, !0), b(this, !1));
+                                t && t(m(this, !0), m(this, !1));
                               } catch (e) {
                                 k(this, !1, e);
                               }
@@ -1529,21 +1544,21 @@ System.register(["single-spa"], function(e) {
                               }),
                               (e.race = function(e) {
                                 var t,
-                                  n,
-                                  r = new this(function(e, r) {
-                                    (t = e), (n = r);
+                                  r,
+                                  n = new this(function(e, n) {
+                                    (t = e), (r = n);
                                   });
                                 function o(e) {
                                   t(e);
                                 }
-                                function a(e) {
-                                  n(e);
+                                function i(e) {
+                                  r(e);
                                 }
-                                for (var i = 0, c = e; i < c.length; i++) {
-                                  var s = c[i];
-                                  f(s) || (s = this.resolve(s)), s.then(o, a);
+                                for (var a = 0, s = e; a < s.length; a++) {
+                                  var c = s[a];
+                                  f(c) || (c = this.resolve(c)), c.then(o, i);
                                 }
-                                return r;
+                                return n;
                               }),
                               (e.all = function(t) {
                                 return e.allWithCallback(t);
@@ -1563,34 +1578,34 @@ System.register(["single-spa"], function(e) {
                               }),
                               (e.allWithCallback = function(e, t) {
                                 for (
-                                  var n,
-                                    r,
+                                  var r,
+                                    n,
                                     o = new this(function(e, t) {
-                                      (n = e), (r = t);
+                                      (r = e), (n = t);
                                     }),
-                                    a = 2,
-                                    i = 0,
-                                    c = [],
-                                    s = function(e) {
+                                    i = 2,
+                                    a = 0,
+                                    s = [],
+                                    c = function(e) {
                                       f(e) || (e = u.resolve(e));
-                                      var o = i;
+                                      var o = a;
                                       try {
                                         e.then(
                                           function(e) {
-                                            (c[o] = t ? t.thenCallback(e) : e),
-                                              0 == --a && n(c);
+                                            (s[o] = t ? t.thenCallback(e) : e),
+                                              0 == --i && r(s);
                                           },
                                           function(e) {
                                             t
-                                              ? ((c[o] = t.errorCallback(e)),
-                                                0 == --a && n(c))
-                                              : r(e);
+                                              ? ((s[o] = t.errorCallback(e)),
+                                                0 == --i && r(s))
+                                              : n(e);
                                           }
                                         );
                                       } catch (e) {
-                                        r(e);
+                                        n(e);
                                       }
-                                      a++, i++;
+                                      i++, a++;
                                     },
                                     u = this,
                                     l = 0,
@@ -1598,8 +1613,8 @@ System.register(["single-spa"], function(e) {
                                   l < p.length;
                                   l++
                                 )
-                                  s(p[l]);
-                                return 0 == (a -= 2) && n(c), o;
+                                  c(p[l]);
+                                return 0 == (i -= 2) && r(s), o;
                               }),
                               Object.defineProperty(
                                 e.prototype,
@@ -1623,32 +1638,32 @@ System.register(["single-spa"], function(e) {
                                   configurable: !0
                                 }
                               ),
-                              (e.prototype.then = function(n, r) {
+                              (e.prototype.then = function(r, n) {
                                 var o = this.constructor[Symbol.species];
                                 (o && "function" == typeof o) ||
                                   (o = this.constructor || e);
-                                var a = new o(S),
-                                  i = t.current;
+                                var i = new o(S),
+                                  a = t.current;
                                 return (
                                   null == this[d]
-                                    ? this[v].push(i, a, n, r)
-                                    : w(this, i, a, n, r),
-                                  a
+                                    ? this[v].push(a, i, r, n)
+                                    : T(this, a, i, r, n),
+                                  i
                                 );
                               }),
                               (e.prototype.catch = function(e) {
                                 return this.then(null, e);
                               }),
-                              (e.prototype.finally = function(n) {
-                                var r = this.constructor[Symbol.species];
-                                (r && "function" == typeof r) || (r = e);
-                                var o = new r(S);
+                              (e.prototype.finally = function(r) {
+                                var n = this.constructor[Symbol.species];
+                                (n && "function" == typeof n) || (n = e);
+                                var o = new n(S);
                                 o[y] = y;
-                                var a = t.current;
+                                var i = t.current;
                                 return (
                                   null == this[d]
-                                    ? this[v].push(a, o, n, n)
-                                    : w(this, a, o, n, n),
+                                    ? this[v].push(i, o, r, r)
+                                    : T(this, i, o, r, r),
                                   o
                                 );
                               }),
@@ -1659,58 +1674,58 @@ System.register(["single-spa"], function(e) {
                           (O.reject = O.reject),
                           (O.race = O.race),
                           (O.all = O.all);
-                        var P = (e[s] = e.Promise),
-                          Z = t.__symbol__("ZoneAwarePromise"),
-                          D = r(e, "Promise");
+                        var P = (e[c] = e.Promise),
+                          j = t.__symbol__("ZoneAwarePromise"),
+                          D = n(e, "Promise");
                         (D && !D.configurable) ||
                           (D && delete D.writable,
                           D && delete D.value,
                           D || (D = { configurable: !0, enumerable: !0 }),
                           (D.get = function() {
-                            return e[Z] ? e[Z] : e[s];
+                            return e[j] ? e[j] : e[c];
                           }),
                           (D.set = function(t) {
                             t === O
-                              ? (e[Z] = t)
-                              : ((e[s] = t),
-                                t.prototype[u] || x(t),
-                                n.setNativePromise(t));
+                              ? (e[j] = t)
+                              : ((e[c] = t),
+                                t.prototype[u] || C(t),
+                                r.setNativePromise(t));
                           }),
                           o(e, "Promise", D)),
                           (e.Promise = O);
-                        var j,
-                          C = a("thenPatched");
-                        function x(e) {
+                        var x,
+                          Z = i("thenPatched");
+                        function C(e) {
                           var t = e.prototype,
-                            n = r(t, "then");
-                          if (!n || (!1 !== n.writable && n.configurable)) {
+                            r = n(t, "then");
+                          if (!r || (!1 !== r.writable && r.configurable)) {
                             var o = t.then;
                             (t[u] = o),
                               (e.prototype.then = function(e, t) {
-                                var n = this;
+                                var r = this;
                                 return new O(function(e, t) {
-                                  o.call(n, e, t);
+                                  o.call(r, e, t);
                                 }).then(e, t);
                               }),
-                              (e[C] = !0);
+                              (e[Z] = !0);
                           }
                         }
-                        if (((n.patchThen = x), P)) {
-                          x(P);
+                        if (((r.patchThen = C), P)) {
+                          C(P);
                           var L = e.fetch;
                           "function" == typeof L &&
-                            ((e[n.symbol("fetch")] = L),
+                            ((e[r.symbol("fetch")] = L),
                             (e.fetch =
-                              ((j = L),
+                              ((x = L),
                               function() {
-                                var e = j.apply(this, arguments);
+                                var e = x.apply(this, arguments);
                                 if (e instanceof O) return e;
                                 var t = e.constructor;
-                                return t[C] || x(t), e;
+                                return t[Z] || C(t), e;
                               })));
                         }
                         return (
-                          (Promise[t.__symbol__("uncaughtPromiseErrors")] = i),
+                          (Promise[t.__symbol__("uncaughtPromiseErrors")] = a),
                           O
                         );
                       });
@@ -1723,234 +1738,234 @@ System.register(["single-spa"], function(e) {
                      */
                     var e = Object.getOwnPropertyDescriptor,
                       t = Object.defineProperty,
-                      n = Object.getPrototypeOf,
+                      r = Object.getPrototypeOf,
                       o = Object.create,
-                      a = Array.prototype.slice,
-                      i = Zone.__symbol__("addEventListener"),
-                      c = Zone.__symbol__("removeEventListener"),
-                      s = Zone.__symbol__("");
+                      i = Array.prototype.slice,
+                      a = Zone.__symbol__("addEventListener"),
+                      s = Zone.__symbol__("removeEventListener"),
+                      c = Zone.__symbol__("");
                     function u(e, t) {
                       return Zone.current.wrap(e, t);
                     }
-                    function l(e, t, n, r, o) {
-                      return Zone.current.scheduleMacroTask(e, t, n, r, o);
+                    function l(e, t, r, n, o) {
+                      return Zone.current.scheduleMacroTask(e, t, r, n, o);
                     }
                     var f = Zone.__symbol__,
                       p = "undefined" != typeof window,
                       h = p ? window : void 0,
-                      d = (p && h) || ("object" == typeof self && self) || r,
+                      d = (p && h) || ("object" == typeof self && self) || n,
                       v = [null];
                     function y(e, t) {
-                      for (var n = e.length - 1; n >= 0; n--)
-                        "function" == typeof e[n] &&
-                          (e[n] = u(e[n], t + "_" + n));
+                      for (var r = e.length - 1; r >= 0; r--)
+                        "function" == typeof e[r] &&
+                          (e[r] = u(e[r], t + "_" + r));
                       return e;
                     }
-                    function g(e) {
+                    function b(e) {
                       return (
                         !e ||
                         (!1 !== e.writable &&
                           !("function" == typeof e.get && void 0 === e.set))
                       );
                     }
-                    var m =
+                    var g =
                         "undefined" != typeof WorkerGlobalScope &&
                         self instanceof WorkerGlobalScope,
-                      b =
+                      m =
                         !("nw" in d) &&
                         void 0 !== d.process &&
                         "[object process]" === {}.toString.call(d.process),
-                      _ = !b && !m && !(!p || !h.HTMLElement),
+                      _ = !m && !g && !(!p || !h.HTMLElement),
                       k =
                         void 0 !== d.process &&
                         "[object process]" === {}.toString.call(d.process) &&
-                        !m &&
+                        !g &&
                         !(!p || !h.HTMLElement),
-                      T = {},
+                      w = {},
                       E = function(e) {
                         if ((e = e || d.event)) {
-                          var t = T[e.type];
-                          t || (t = T[e.type] = f("ON_PROPERTY" + e.type));
-                          var n,
-                            r = this || e.target || d,
-                            o = r[t];
-                          if (_ && r === h && "error" === e.type) {
-                            var a = e;
+                          var t = w[e.type];
+                          t || (t = w[e.type] = f("ON_PROPERTY" + e.type));
+                          var r,
+                            n = this || e.target || d,
+                            o = n[t];
+                          if (_ && n === h && "error" === e.type) {
+                            var i = e;
                             !0 ===
-                              (n =
+                              (r =
                                 o &&
                                 o.call(
                                   this,
-                                  a.message,
-                                  a.filename,
-                                  a.lineno,
-                                  a.colno,
-                                  a.error
+                                  i.message,
+                                  i.filename,
+                                  i.lineno,
+                                  i.colno,
+                                  i.error
                                 )) && e.preventDefault();
                           } else
-                            null == (n = o && o.apply(this, arguments)) ||
-                              n ||
+                            null == (r = o && o.apply(this, arguments)) ||
+                              r ||
                               e.preventDefault();
-                          return n;
+                          return r;
                         }
                       };
-                    function w(n, r, o) {
-                      var a = e(n, r);
+                    function T(r, n, o) {
+                      var i = e(r, n);
                       if (
-                        (!a &&
+                        (!i &&
                           o &&
-                          e(o, r) &&
-                          (a = { enumerable: !0, configurable: !0 }),
-                        a && a.configurable)
+                          e(o, n) &&
+                          (i = { enumerable: !0, configurable: !0 }),
+                        i && i.configurable)
                       ) {
-                        var i = f("on" + r + "patched");
-                        if (!n.hasOwnProperty(i) || !n[i]) {
-                          delete a.writable, delete a.value;
-                          var c = a.get,
-                            s = a.set,
-                            u = r.substr(2),
-                            l = T[u];
-                          l || (l = T[u] = f("ON_PROPERTY" + u)),
-                            (a.set = function(e) {
+                        var a = f("on" + n + "patched");
+                        if (!r.hasOwnProperty(a) || !r[a]) {
+                          delete i.writable, delete i.value;
+                          var s = i.get,
+                            c = i.set,
+                            u = n.substr(2),
+                            l = w[u];
+                          l || (l = w[u] = f("ON_PROPERTY" + u)),
+                            (i.set = function(e) {
                               var t = this;
-                              t || n !== d || (t = d),
+                              t || r !== d || (t = d),
                                 t &&
                                   (t[l] && t.removeEventListener(u, E),
-                                  s && s.apply(t, v),
+                                  c && c.apply(t, v),
                                   "function" == typeof e
                                     ? ((t[l] = e), t.addEventListener(u, E, !1))
                                     : (t[l] = null));
                             }),
-                            (a.get = function() {
+                            (i.get = function() {
                               var e = this;
-                              if ((e || n !== d || (e = d), !e)) return null;
+                              if ((e || r !== d || (e = d), !e)) return null;
                               var t = e[l];
                               if (t) return t;
-                              if (c) {
-                                var o = c && c.call(this);
+                              if (s) {
+                                var o = s && s.call(this);
                                 if (o)
                                   return (
-                                    a.set.call(this, o),
+                                    i.set.call(this, o),
                                     "function" == typeof e.removeAttribute &&
-                                      e.removeAttribute(r),
+                                      e.removeAttribute(n),
                                     o
                                   );
                               }
                               return null;
                             }),
-                            t(n, r, a),
-                            (n[i] = !0);
+                            t(r, n, i),
+                            (r[a] = !0);
                         }
                       }
                     }
-                    function S(e, t, n) {
+                    function S(e, t, r) {
                       if (t)
-                        for (var r = 0; r < t.length; r++) w(e, "on" + t[r], n);
+                        for (var n = 0; n < t.length; n++) T(e, "on" + t[n], r);
                       else {
                         var o = [];
-                        for (var a in e) "on" == a.substr(0, 2) && o.push(a);
-                        for (var i = 0; i < o.length; i++) w(e, o[i], n);
+                        for (var i in e) "on" == i.substr(0, 2) && o.push(i);
+                        for (var a = 0; a < o.length; a++) T(e, o[a], r);
                       }
                     }
                     var O = f("originalInstance");
                     function P(e) {
-                      var n = d[e];
-                      if (n) {
-                        (d[f(e)] = n),
+                      var r = d[e];
+                      if (r) {
+                        (d[f(e)] = r),
                           (d[e] = function() {
                             var t = y(arguments, e);
                             switch (t.length) {
                               case 0:
-                                this[O] = new n();
+                                this[O] = new r();
                                 break;
                               case 1:
-                                this[O] = new n(t[0]);
+                                this[O] = new r(t[0]);
                                 break;
                               case 2:
-                                this[O] = new n(t[0], t[1]);
+                                this[O] = new r(t[0], t[1]);
                                 break;
                               case 3:
-                                this[O] = new n(t[0], t[1], t[2]);
+                                this[O] = new r(t[0], t[1], t[2]);
                                 break;
                               case 4:
-                                this[O] = new n(t[0], t[1], t[2], t[3]);
+                                this[O] = new r(t[0], t[1], t[2], t[3]);
                                 break;
                               default:
                                 throw new Error("Arg list too long.");
                             }
                           }),
-                          j(d[e], n);
-                        var r,
-                          o = new n(function() {});
-                        for (r in o)
-                          ("XMLHttpRequest" === e && "responseBlob" === r) ||
-                            (function(n) {
-                              "function" == typeof o[n]
-                                ? (d[e].prototype[n] = function() {
-                                    return this[O][n].apply(this[O], arguments);
+                          x(d[e], r);
+                        var n,
+                          o = new r(function() {});
+                        for (n in o)
+                          ("XMLHttpRequest" === e && "responseBlob" === n) ||
+                            (function(r) {
+                              "function" == typeof o[r]
+                                ? (d[e].prototype[r] = function() {
+                                    return this[O][r].apply(this[O], arguments);
                                   })
-                                : t(d[e].prototype, n, {
+                                : t(d[e].prototype, r, {
                                     set: function(t) {
                                       "function" == typeof t
-                                        ? ((this[O][n] = u(t, e + "." + n)),
-                                          j(this[O][n], t))
-                                        : (this[O][n] = t);
+                                        ? ((this[O][r] = u(t, e + "." + r)),
+                                          x(this[O][r], t))
+                                        : (this[O][r] = t);
                                     },
                                     get: function() {
-                                      return this[O][n];
+                                      return this[O][r];
                                     }
                                   });
-                            })(r);
-                        for (r in n)
-                          "prototype" !== r &&
-                            n.hasOwnProperty(r) &&
-                            (d[e][r] = n[r]);
+                            })(n);
+                        for (n in r)
+                          "prototype" !== n &&
+                            r.hasOwnProperty(n) &&
+                            (d[e][n] = r[n]);
                       }
                     }
-                    function Z(t, r, o) {
-                      for (var a = t; a && !a.hasOwnProperty(r); ) a = n(a);
-                      !a && t[r] && (a = t);
-                      var i = f(r),
-                        c = null;
+                    function j(t, n, o) {
+                      for (var i = t; i && !i.hasOwnProperty(n); ) i = r(i);
+                      !i && t[n] && (i = t);
+                      var a = f(n),
+                        s = null;
                       if (
-                        a &&
-                        !(c = a[i]) &&
-                        ((c = a[i] = a[r]), g(a && e(a, r)))
+                        i &&
+                        !(s = i[a]) &&
+                        ((s = i[a] = i[n]), b(i && e(i, n)))
                       ) {
-                        var s = o(c, i, r);
-                        (a[r] = function() {
-                          return s(this, arguments);
+                        var c = o(s, a, n);
+                        (i[n] = function() {
+                          return c(this, arguments);
                         }),
-                          j(a[r], c);
+                          x(i[n], s);
                       }
-                      return c;
+                      return s;
                     }
-                    function D(e, t, n) {
-                      var r = null;
+                    function D(e, t, r) {
+                      var n = null;
                       function o(e) {
                         var t = e.data;
                         return (
                           (t.args[t.cbIdx] = function() {
                             e.invoke.apply(this, arguments);
                           }),
-                          r.apply(t.target, t.args),
+                          n.apply(t.target, t.args),
                           e
                         );
                       }
-                      r = Z(e, t, function(e) {
-                        return function(t, r) {
-                          var a = n(t, r);
-                          return a.cbIdx >= 0 && "function" == typeof r[a.cbIdx]
-                            ? l(a.name, r[a.cbIdx], a, o)
-                            : e.apply(t, r);
+                      n = j(e, t, function(e) {
+                        return function(t, n) {
+                          var i = r(t, n);
+                          return i.cbIdx >= 0 && "function" == typeof n[i.cbIdx]
+                            ? l(i.name, n[i.cbIdx], i, o)
+                            : e.apply(t, n);
                         };
                       });
                     }
-                    function j(e, t) {
+                    function x(e, t) {
                       e[f("OriginalDelegate")] = t;
                     }
-                    var C = !1,
-                      x = !1;
+                    var Z = !1,
+                      C = !1;
                     function L() {
                       try {
                         var e = h.navigator.userAgent;
@@ -1963,16 +1978,16 @@ System.register(["single-spa"], function(e) {
                       return !1;
                     }
                     function z() {
-                      if (C) return x;
-                      C = !0;
+                      if (Z) return C;
+                      Z = !0;
                       try {
                         var e = h.navigator.userAgent;
                         (-1 === e.indexOf("MSIE ") &&
                           -1 === e.indexOf("Trident/") &&
                           -1 === e.indexOf("Edge/")) ||
-                          (x = !0);
+                          (C = !0);
                       } catch (e) {}
-                      return x;
+                      return C;
                     }
                     /**
                      * @license
@@ -1982,33 +1997,33 @@ System.register(["single-spa"], function(e) {
                      * found in the LICENSE file at https://angular.io/license
                      */ Zone.__load_patch("toString", function(e) {
                       var t = Function.prototype.toString,
-                        n = f("OriginalDelegate"),
-                        r = f("Promise"),
+                        r = f("OriginalDelegate"),
+                        n = f("Promise"),
                         o = f("Error"),
-                        a = function() {
+                        i = function() {
                           if ("function" == typeof this) {
-                            var a = this[n];
-                            if (a)
-                              return "function" == typeof a
-                                ? t.call(a)
-                                : Object.prototype.toString.call(a);
+                            var i = this[r];
+                            if (i)
+                              return "function" == typeof i
+                                ? t.call(i)
+                                : Object.prototype.toString.call(i);
                             if (this === Promise) {
-                              var i = e[r];
-                              if (i) return t.call(i);
+                              var a = e[n];
+                              if (a) return t.call(a);
                             }
                             if (this === Error) {
-                              var c = e[o];
-                              if (c) return t.call(c);
+                              var s = e[o];
+                              if (s) return t.call(s);
                             }
                           }
                           return t.call(this);
                         };
-                      (a[n] = t), (Function.prototype.toString = a);
-                      var i = Object.prototype.toString;
+                      (i[r] = t), (Function.prototype.toString = i);
+                      var a = Object.prototype.toString;
                       Object.prototype.toString = function() {
                         return this instanceof Promise
                           ? "[object Promise]"
-                          : i.call(this);
+                          : a.call(this);
                       };
                     });
                     /**
@@ -2018,110 +2033,110 @@ System.register(["single-spa"], function(e) {
                      * Use of this source code is governed by an MIT-style license that can be
                      * found in the LICENSE file at https://angular.io/license
                      */
-                    var I = !1;
+                    var M = !1;
                     if ("undefined" != typeof window)
                       try {
-                        var M = Object.defineProperty({}, "passive", {
+                        var I = Object.defineProperty({}, "passive", {
                           get: function() {
-                            I = !0;
+                            M = !0;
                           }
                         });
-                        window.addEventListener("test", M, M),
-                          window.removeEventListener("test", M, M);
+                        window.addEventListener("test", I, I),
+                          window.removeEventListener("test", I, I);
                       } catch (e) {
-                        I = !1;
+                        M = !1;
                       }
                     var R = { useG: !0 },
                       N = {},
-                      F = {},
-                      A = new RegExp("^" + s + "(\\w+)(true|false)$"),
-                      H = f("propagationStopped");
+                      H = {},
+                      F = new RegExp("^" + c + "(\\w+)(true|false)$"),
+                      A = f("propagationStopped");
                     function G(e, t) {
-                      var n = (t ? t(e) : e) + "false",
-                        r = (t ? t(e) : e) + "true",
-                        o = s + n,
-                        a = s + r;
-                      (N[e] = {}), (N[e].false = o), (N[e].true = a);
+                      var r = (t ? t(e) : e) + "false",
+                        n = (t ? t(e) : e) + "true",
+                        o = c + r,
+                        i = c + n;
+                      (N[e] = {}), (N[e].false = o), (N[e].true = i);
                     }
-                    function B(e, t, r) {
-                      var o = (r && r.add) || "addEventListener",
-                        a = (r && r.rm) || "removeEventListener",
-                        i = (r && r.listeners) || "eventListeners",
-                        c = (r && r.rmAll) || "removeAllListeners",
+                    function B(e, t, n) {
+                      var o = (n && n.add) || "addEventListener",
+                        i = (n && n.rm) || "removeEventListener",
+                        a = (n && n.listeners) || "eventListeners",
+                        s = (n && n.rmAll) || "removeAllListeners",
                         u = f(o),
                         l = "." + o + ":",
-                        p = function(e, t, n) {
+                        p = function(e, t, r) {
                           if (!e.isRemoved) {
-                            var r = e.callback;
-                            "object" == typeof r &&
-                              r.handleEvent &&
+                            var n = e.callback;
+                            "object" == typeof n &&
+                              n.handleEvent &&
                               ((e.callback = function(e) {
-                                return r.handleEvent(e);
+                                return n.handleEvent(e);
                               }),
-                              (e.originalDelegate = r)),
-                              e.invoke(e, t, [n]);
+                              (e.originalDelegate = n)),
+                              e.invoke(e, t, [r]);
                             var o = e.options;
                             if (o && "object" == typeof o && o.once) {
-                              var i = e.originalDelegate
+                              var a = e.originalDelegate
                                 ? e.originalDelegate
                                 : e.callback;
-                              t[a].call(t, n.type, i, o);
+                              t[i].call(t, r.type, a, o);
                             }
                           }
                         },
                         h = function(t) {
                           if ((t = t || e.event)) {
-                            var n = this || t.target || e,
-                              r = n[N[t.type].false];
-                            if (r)
-                              if (1 === r.length) p(r[0], n, t);
+                            var r = this || t.target || e,
+                              n = r[N[t.type].false];
+                            if (n)
+                              if (1 === n.length) p(n[0], r, t);
                               else
                                 for (
-                                  var o = r.slice(), a = 0;
-                                  a < o.length && (!t || !0 !== t[H]);
-                                  a++
+                                  var o = n.slice(), i = 0;
+                                  i < o.length && (!t || !0 !== t[A]);
+                                  i++
                                 )
-                                  p(o[a], n, t);
+                                  p(o[i], r, t);
                           }
                         },
                         d = function(t) {
                           if ((t = t || e.event)) {
-                            var n = this || t.target || e,
-                              r = n[N[t.type].true];
-                            if (r)
-                              if (1 === r.length) p(r[0], n, t);
+                            var r = this || t.target || e,
+                              n = r[N[t.type].true];
+                            if (n)
+                              if (1 === n.length) p(n[0], r, t);
                               else
                                 for (
-                                  var o = r.slice(), a = 0;
-                                  a < o.length && (!t || !0 !== t[H]);
-                                  a++
+                                  var o = n.slice(), i = 0;
+                                  i < o.length && (!t || !0 !== t[A]);
+                                  i++
                                 )
-                                  p(o[a], n, t);
+                                  p(o[i], r, t);
                           }
                         };
-                      function v(t, r) {
+                      function v(t, n) {
                         if (!t) return !1;
                         var p = !0;
-                        r && void 0 !== r.useG && (p = r.useG);
-                        var v = r && r.vh,
+                        n && void 0 !== n.useG && (p = n.useG);
+                        var v = n && n.vh,
                           y = !0;
-                        r && void 0 !== r.chkDup && (y = r.chkDup);
-                        var g = !1;
-                        r && void 0 !== r.rt && (g = r.rt);
-                        for (var m = t; m && !m.hasOwnProperty(o); ) m = n(m);
-                        if ((!m && t[o] && (m = t), !m)) return !1;
-                        if (m[u]) return !1;
+                        n && void 0 !== n.chkDup && (y = n.chkDup);
+                        var b = !1;
+                        n && void 0 !== n.rt && (b = n.rt);
+                        for (var g = t; g && !g.hasOwnProperty(o); ) g = r(g);
+                        if ((!g && t[o] && (g = t), !g)) return !1;
+                        if (g[u]) return !1;
                         var _,
-                          k = r && r.eventNameToString,
-                          T = {},
-                          E = (m[u] = m[o]),
-                          w = (m[f(a)] = m[a]),
-                          S = (m[f(i)] = m[i]),
-                          O = (m[f(c)] = m[c]);
+                          k = n && n.eventNameToString,
+                          w = {},
+                          E = (g[u] = g[o]),
+                          T = (g[f(i)] = g[i]),
+                          S = (g[f(a)] = g[a]),
+                          O = (g[f(s)] = g[s]);
                         function P(e, t) {
-                          return !I && "object" == typeof e && e
+                          return !M && "object" == typeof e && e
                             ? !!e.capture
-                            : I && t
+                            : M && t
                             ? "boolean" == typeof e
                               ? { capture: e, passive: !0 }
                               : e
@@ -2133,45 +2148,45 @@ System.register(["single-spa"], function(e) {
                               : { passive: !0 }
                             : e;
                         }
-                        r && r.prepend && (_ = m[f(r.prepend)] = m[r.prepend]);
-                        var Z = p
+                        n && n.prepend && (_ = g[f(n.prepend)] = g[n.prepend]);
+                        var j = p
                             ? function(e) {
-                                if (!T.isExisting)
+                                if (!w.isExisting)
                                   return E.call(
-                                    T.target,
-                                    T.eventName,
-                                    T.capture ? d : h,
-                                    T.options
+                                    w.target,
+                                    w.eventName,
+                                    w.capture ? d : h,
+                                    w.options
                                   );
                               }
                             : function(e) {
                                 return E.call(
-                                  T.target,
-                                  T.eventName,
+                                  w.target,
+                                  w.eventName,
                                   e.invoke,
-                                  T.options
+                                  w.options
                                 );
                               },
                           D = p
                             ? function(e) {
                                 if (!e.isRemoved) {
                                   var t = N[e.eventName],
-                                    n = void 0;
-                                  t && (n = t[e.capture ? "true" : "false"]);
-                                  var r = n && e.target[n];
-                                  if (r)
-                                    for (var o = 0; o < r.length; o++)
-                                      if (r[o] === e) {
-                                        r.splice(o, 1),
+                                    r = void 0;
+                                  t && (r = t[e.capture ? "true" : "false"]);
+                                  var n = r && e.target[r];
+                                  if (n)
+                                    for (var o = 0; o < n.length; o++)
+                                      if (n[o] === e) {
+                                        n.splice(o, 1),
                                           (e.isRemoved = !0),
-                                          0 === r.length &&
+                                          0 === n.length &&
                                             ((e.allRemoved = !0),
-                                            (e.target[n] = null));
+                                            (e.target[r] = null));
                                         break;
                                       }
                                 }
                                 if (e.allRemoved)
-                                  return w.call(
+                                  return T.call(
                                     e.target,
                                     e.eventName,
                                     e.capture ? d : h,
@@ -2179,38 +2194,38 @@ System.register(["single-spa"], function(e) {
                                   );
                               }
                             : function(e) {
-                                return w.call(
+                                return T.call(
                                   e.target,
                                   e.eventName,
                                   e.invoke,
                                   e.options
                                 );
                               },
-                          C =
-                            r && r.diff
-                              ? r.diff
+                          Z =
+                            n && n.diff
+                              ? n.diff
                               : function(e, t) {
-                                  var n = typeof t;
+                                  var r = typeof t;
                                   return (
-                                    ("function" === n && e.callback === t) ||
-                                    ("object" === n && e.originalDelegate === t)
+                                    ("function" === r && e.callback === t) ||
+                                    ("object" === r && e.originalDelegate === t)
                                   );
                                 },
-                          x = Zone[f("BLACK_LISTED_EVENTS")],
+                          C = Zone[f("BLACK_LISTED_EVENTS")],
                           L = e[f("PASSIVE_EVENTS")],
-                          z = function(t, n, o, a, i, c) {
+                          z = function(t, r, o, i, a, s) {
                             return (
-                              void 0 === i && (i = !1),
-                              void 0 === c && (c = !1),
+                              void 0 === a && (a = !1),
+                              void 0 === s && (s = !1),
                               function() {
-                                var s = this || e,
+                                var c = this || e,
                                   u = arguments[0];
-                                r &&
-                                  r.transferEventName &&
-                                  (u = r.transferEventName(u));
+                                n &&
+                                  n.transferEventName &&
+                                  (u = n.transferEventName(u));
                                 var l = arguments[1];
                                 if (!l) return t.apply(this, arguments);
-                                if (b && "uncaughtException" === u)
+                                if (m && "uncaughtException" === u)
                                   return t.apply(this, arguments);
                                 var f = !1;
                                 if ("function" != typeof l) {
@@ -2218,154 +2233,154 @@ System.register(["single-spa"], function(e) {
                                     return t.apply(this, arguments);
                                   f = !0;
                                 }
-                                if (!v || v(t, l, s, arguments)) {
-                                  var h = I && !!L && -1 !== L.indexOf(u),
+                                if (!v || v(t, l, c, arguments)) {
+                                  var h = M && !!L && -1 !== L.indexOf(u),
                                     d = P(arguments[2], h);
-                                  if (x)
-                                    for (var g = 0; g < x.length; g++)
-                                      if (u === x[g])
+                                  if (C)
+                                    for (var b = 0; b < C.length; b++)
+                                      if (u === C[b])
                                         return h
-                                          ? t.call(s, u, l, d)
+                                          ? t.call(c, u, l, d)
                                           : t.apply(this, arguments);
-                                  var m =
+                                  var g =
                                       !!d &&
                                       ("boolean" == typeof d || d.capture),
                                     _ = !(!d || "object" != typeof d) && d.once,
                                     E = Zone.current,
-                                    w = N[u];
-                                  w || (G(u, k), (w = N[u]));
+                                    T = N[u];
+                                  T || (G(u, k), (T = N[u]));
                                   var S,
-                                    O = w[m ? "true" : "false"],
-                                    Z = s[O],
+                                    O = T[g ? "true" : "false"],
+                                    j = c[O],
                                     D = !1;
-                                  if (Z) {
+                                  if (j) {
                                     if (((D = !0), y))
-                                      for (g = 0; g < Z.length; g++)
-                                        if (C(Z[g], l)) return;
-                                  } else Z = s[O] = [];
-                                  var j = s.constructor.name,
-                                    z = F[j];
+                                      for (b = 0; b < j.length; b++)
+                                        if (Z(j[b], l)) return;
+                                  } else j = c[O] = [];
+                                  var x = c.constructor.name,
+                                    z = H[x];
                                   z && (S = z[u]),
-                                    S || (S = j + n + (k ? k(u) : u)),
-                                    (T.options = d),
-                                    _ && (T.options.once = !1),
-                                    (T.target = s),
-                                    (T.capture = m),
-                                    (T.eventName = u),
-                                    (T.isExisting = D);
-                                  var M = p ? R : void 0;
-                                  M && (M.taskData = T);
-                                  var A = E.scheduleEventTask(S, l, M, o, a);
+                                    S || (S = x + r + (k ? k(u) : u)),
+                                    (w.options = d),
+                                    _ && (w.options.once = !1),
+                                    (w.target = c),
+                                    (w.capture = g),
+                                    (w.eventName = u),
+                                    (w.isExisting = D);
+                                  var I = p ? R : void 0;
+                                  I && (I.taskData = w);
+                                  var F = E.scheduleEventTask(S, l, I, o, i);
                                   return (
-                                    (T.target = null),
-                                    M && (M.taskData = null),
+                                    (w.target = null),
+                                    I && (I.taskData = null),
                                     _ && (d.once = !0),
-                                    (I || "boolean" != typeof A.options) &&
-                                      (A.options = d),
-                                    (A.target = s),
-                                    (A.capture = m),
-                                    (A.eventName = u),
-                                    f && (A.originalDelegate = l),
-                                    c ? Z.unshift(A) : Z.push(A),
-                                    i ? s : void 0
+                                    (M || "boolean" != typeof F.options) &&
+                                      (F.options = d),
+                                    (F.target = c),
+                                    (F.capture = g),
+                                    (F.eventName = u),
+                                    f && (F.originalDelegate = l),
+                                    s ? j.unshift(F) : j.push(F),
+                                    a ? c : void 0
                                   );
                                 }
                               }
                             );
                           };
                         return (
-                          (m[o] = z(E, l, Z, D, g)),
+                          (g[o] = z(E, l, j, D, b)),
                           _ &&
-                            (m.prependListener = z(
+                            (g.prependListener = z(
                               _,
                               ".prependListener:",
                               function(e) {
                                 return _.call(
-                                  T.target,
-                                  T.eventName,
+                                  w.target,
+                                  w.eventName,
                                   e.invoke,
-                                  T.options
+                                  w.options
                                 );
                               },
                               D,
-                              g,
+                              b,
                               !0
                             )),
-                          (m[a] = function() {
+                          (g[i] = function() {
                             var t = this || e,
-                              n = arguments[0];
-                            r &&
-                              r.transferEventName &&
-                              (n = r.transferEventName(n));
+                              r = arguments[0];
+                            n &&
+                              n.transferEventName &&
+                              (r = n.transferEventName(r));
                             var o = arguments[2],
-                              a = !!o && ("boolean" == typeof o || o.capture),
-                              i = arguments[1];
-                            if (!i) return w.apply(this, arguments);
-                            if (!v || v(w, i, t, arguments)) {
-                              var c,
-                                u = N[n];
-                              u && (c = u[a ? "true" : "false"]);
-                              var l = c && t[c];
+                              i = !!o && ("boolean" == typeof o || o.capture),
+                              a = arguments[1];
+                            if (!a) return T.apply(this, arguments);
+                            if (!v || v(T, a, t, arguments)) {
+                              var s,
+                                u = N[r];
+                              u && (s = u[i ? "true" : "false"]);
+                              var l = s && t[s];
                               if (l)
                                 for (var f = 0; f < l.length; f++) {
                                   var p = l[f];
-                                  if (C(p, i)) {
+                                  if (Z(p, a)) {
                                     if (
                                       (l.splice(f, 1),
                                       (p.isRemoved = !0),
                                       0 === l.length &&
                                         ((p.allRemoved = !0),
-                                        (t[c] = null),
-                                        "string" == typeof n))
+                                        (t[s] = null),
+                                        "string" == typeof r))
                                     ) {
-                                      var h = s + "ON_PROPERTY" + n;
+                                      var h = c + "ON_PROPERTY" + r;
                                       t[h] = null;
                                     }
-                                    return p.zone.cancelTask(p), g ? t : void 0;
+                                    return p.zone.cancelTask(p), b ? t : void 0;
                                   }
                                 }
-                              return w.apply(this, arguments);
+                              return T.apply(this, arguments);
                             }
                           }),
-                          (m[i] = function() {
+                          (g[a] = function() {
                             var t = this || e,
-                              n = arguments[0];
-                            r &&
-                              r.transferEventName &&
-                              (n = r.transferEventName(n));
+                              r = arguments[0];
+                            n &&
+                              n.transferEventName &&
+                              (r = n.transferEventName(r));
                             for (
-                              var o = [], a = W(t, k ? k(n) : n), i = 0;
-                              i < a.length;
-                              i++
+                              var o = [], i = W(t, k ? k(r) : r), a = 0;
+                              a < i.length;
+                              a++
                             ) {
-                              var c = a[i],
-                                s = c.originalDelegate
-                                  ? c.originalDelegate
-                                  : c.callback;
-                              o.push(s);
+                              var s = i[a],
+                                c = s.originalDelegate
+                                  ? s.originalDelegate
+                                  : s.callback;
+                              o.push(c);
                             }
                             return o;
                           }),
-                          (m[c] = function() {
+                          (g[s] = function() {
                             var t = this || e,
-                              n = arguments[0];
-                            if (n) {
-                              r &&
-                                r.transferEventName &&
-                                (n = r.transferEventName(n));
-                              var o = N[n];
+                              r = arguments[0];
+                            if (r) {
+                              n &&
+                                n.transferEventName &&
+                                (r = n.transferEventName(r));
+                              var o = N[r];
                               if (o) {
-                                var i = o.false,
-                                  s = o.true,
-                                  u = t[i],
-                                  l = t[s];
+                                var a = o.false,
+                                  c = o.true,
+                                  u = t[a],
+                                  l = t[c];
                                 if (u) {
                                   var f = u.slice();
                                   for (v = 0; v < f.length; v++) {
                                     var p = (h = f[v]).originalDelegate
                                       ? h.originalDelegate
                                       : h.callback;
-                                    this[a].call(this, n, p, h.options);
+                                    this[i].call(this, r, p, h.options);
                                   }
                                 }
                                 if (l)
@@ -2378,7 +2393,7 @@ System.register(["single-spa"], function(e) {
                                     (p = (h = f[v]).originalDelegate
                                       ? h.originalDelegate
                                       : h.callback),
-                                      this[a].call(this, n, p, h.options);
+                                      this[i].call(this, r, p, h.options);
                                   }
                               }
                             } else {
@@ -2388,45 +2403,45 @@ System.register(["single-spa"], function(e) {
                                 v++
                               ) {
                                 var y = d[v],
-                                  m = A.exec(y),
-                                  b = m && m[1];
-                                b &&
-                                  "removeListener" !== b &&
-                                  this[c].call(this, b);
+                                  g = F.exec(y),
+                                  m = g && g[1];
+                                m &&
+                                  "removeListener" !== m &&
+                                  this[s].call(this, m);
                               }
-                              this[c].call(this, "removeListener");
+                              this[s].call(this, "removeListener");
                             }
-                            if (g) return this;
+                            if (b) return this;
                           }),
-                          j(m[o], E),
-                          j(m[a], w),
-                          O && j(m[c], O),
-                          S && j(m[i], S),
+                          x(g[o], E),
+                          x(g[i], T),
+                          O && x(g[s], O),
+                          S && x(g[a], S),
                           !0
                         );
                       }
-                      for (var y = [], g = 0; g < t.length; g++)
-                        y[g] = v(t[g], r);
+                      for (var y = [], b = 0; b < t.length; b++)
+                        y[b] = v(t[b], n);
                       return y;
                     }
                     function W(e, t) {
                       if (!t) {
-                        var n = [];
-                        for (var r in e) {
-                          var o = A.exec(r),
-                            a = o && o[1];
-                          if (a && (!t || a === t)) {
-                            var i = e[r];
-                            if (i)
-                              for (var c = 0; c < i.length; c++) n.push(i[c]);
+                        var r = [];
+                        for (var n in e) {
+                          var o = F.exec(n),
+                            i = o && o[1];
+                          if (i && (!t || i === t)) {
+                            var a = e[n];
+                            if (a)
+                              for (var s = 0; s < a.length; s++) r.push(a[s]);
                           }
                         }
-                        return n;
+                        return r;
                       }
-                      var s = N[t];
-                      s || (G(t), (s = N[t]));
-                      var u = e[s.false],
-                        l = e[s.true];
+                      var c = N[t];
+                      c || (G(t), (c = N[t]));
+                      var u = e[c.false],
+                        l = e[c.true];
                       return u
                         ? l
                           ? u.concat(l)
@@ -2435,16 +2450,16 @@ System.register(["single-spa"], function(e) {
                         ? l.slice()
                         : [];
                     }
-                    function q(e, t) {
-                      var n = e.Event;
-                      n &&
-                        n.prototype &&
+                    function U(e, t) {
+                      var r = e.Event;
+                      r &&
+                        r.prototype &&
                         t.patchMethod(
-                          n.prototype,
+                          r.prototype,
                           "stopImmediatePropagation",
                           function(e) {
-                            return function(t, n) {
-                              (t[H] = !0), e && e.apply(t, n);
+                            return function(t, r) {
+                              (t[A] = !0), e && e.apply(t, r);
                             };
                           }
                         );
@@ -2455,36 +2470,36 @@ System.register(["single-spa"], function(e) {
                      *
                      * Use of this source code is governed by an MIT-style license that can be
                      * found in the LICENSE file at https://angular.io/license
-                     */ function U(e, t, n, r, o) {
-                      var a = Zone.__symbol__(r);
-                      if (!t[a]) {
-                        var i = (t[a] = t[r]);
-                        (t[r] = function(a, c, s) {
+                     */ function q(e, t, r, n, o) {
+                      var i = Zone.__symbol__(n);
+                      if (!t[i]) {
+                        var a = (t[i] = t[n]);
+                        (t[n] = function(i, s, c) {
                           return (
-                            c &&
-                              c.prototype &&
+                            s &&
+                              s.prototype &&
                               o.forEach(function(t) {
-                                var o = n + "." + r + "::" + t,
-                                  a = c.prototype;
-                                if (a.hasOwnProperty(t)) {
-                                  var i = e.ObjectGetOwnPropertyDescriptor(
-                                    a,
+                                var o = r + "." + n + "::" + t,
+                                  i = s.prototype;
+                                if (i.hasOwnProperty(t)) {
+                                  var a = e.ObjectGetOwnPropertyDescriptor(
+                                    i,
                                     t
                                   );
-                                  i && i.value
-                                    ? ((i.value = e.wrapWithCurrentZone(
-                                        i.value,
+                                  a && a.value
+                                    ? ((a.value = e.wrapWithCurrentZone(
+                                        a.value,
                                         o
                                       )),
-                                      e._redefineProperty(c.prototype, t, i))
-                                    : a[t] &&
-                                      (a[t] = e.wrapWithCurrentZone(a[t], o));
-                                } else a[t] && (a[t] = e.wrapWithCurrentZone(a[t], o));
+                                      e._redefineProperty(s.prototype, t, a))
+                                    : i[t] &&
+                                      (i[t] = e.wrapWithCurrentZone(i[t], o));
+                                } else i[t] && (i[t] = e.wrapWithCurrentZone(i[t], o));
                               }),
-                            i.call(t, a, c, s)
+                            a.call(t, i, s, c)
                           );
                         }),
-                          e.attachOriginToPatched(t[r], i);
+                          e.attachOriginToPatched(t[n], a);
                       }
                     }
                     /**
@@ -2498,7 +2513,7 @@ System.register(["single-spa"], function(e) {
                       Y,
                       K,
                       J,
-                      Q = [
+                      $ = [
                         "absolutedeviceorientation",
                         "afterinput",
                         "afterprint",
@@ -2530,7 +2545,7 @@ System.register(["single-spa"], function(e) {
                         "vrdisplaydisconnected",
                         "vrdisplaypresentchange"
                       ],
-                      $ = [
+                      Q = [
                         "encrypted",
                         "waitingforkey",
                         "msneedkey",
@@ -2547,8 +2562,8 @@ System.register(["single-spa"], function(e) {
                         "scroll",
                         "messageerror"
                       ],
-                      ne = ["bounce", "finish", "start"],
-                      re = [
+                      re = ["bounce", "finish", "start"],
+                      ne = [
                         "loadstart",
                         "progress",
                         "abort",
@@ -2569,9 +2584,9 @@ System.register(["single-spa"], function(e) {
                         "versionchange",
                         "close"
                       ],
-                      ae = ["close", "error", "open", "message"],
-                      ie = ["error", "message"],
-                      ce = [
+                      ie = ["close", "error", "open", "message"],
+                      ae = ["error", "message"],
+                      se = [
                         "abort",
                         "animationcancel",
                         "animationend",
@@ -2693,7 +2708,7 @@ System.register(["single-spa"], function(e) {
                           "visibilitychange",
                           "resume"
                         ],
-                        Q,
+                        $,
                         [
                           "beforecopy",
                           "beforecut",
@@ -2770,54 +2785,54 @@ System.register(["single-spa"], function(e) {
                           "storagecommit"
                         ]
                       );
-                    function se(e, t, n) {
-                      if (!n || 0 === n.length) return t;
-                      var r = n.filter(function(t) {
+                    function ce(e, t, r) {
+                      if (!r || 0 === r.length) return t;
+                      var n = r.filter(function(t) {
                         return t.target === e;
                       });
-                      if (!r || 0 === r.length) return t;
-                      var o = r[0].ignoreProperties;
+                      if (!n || 0 === n.length) return t;
+                      var o = n[0].ignoreProperties;
                       return t.filter(function(e) {
                         return -1 === o.indexOf(e);
                       });
                     }
-                    function ue(e, t, n, r) {
-                      e && S(e, se(e, t, n), r);
+                    function ue(e, t, r, n) {
+                      e && S(e, ce(e, t, r), n);
                     }
                     function le(e, t) {
-                      if ((!b || k) && !Zone[e.symbol("patchEvents")]) {
-                        var r = "undefined" != typeof WebSocket,
+                      if ((!m || k) && !Zone[e.symbol("patchEvents")]) {
+                        var n = "undefined" != typeof WebSocket,
                           o = t.__Zone_ignore_on_properties;
                         if (_) {
-                          var a = window,
-                            i = L
-                              ? [{ target: a, ignoreProperties: ["error"] }]
+                          var i = window,
+                            a = L
+                              ? [{ target: i, ignoreProperties: ["error"] }]
                               : [];
                           ue(
-                            a,
-                            ce.concat(["messageerror"]),
-                            o ? o.concat(i) : o,
-                            n(a)
+                            i,
+                            se.concat(["messageerror"]),
+                            o ? o.concat(a) : o,
+                            r(i)
                           ),
-                            ue(Document.prototype, ce, o),
-                            void 0 !== a.SVGElement &&
-                              ue(a.SVGElement.prototype, ce, o),
-                            ue(Element.prototype, ce, o),
-                            ue(HTMLElement.prototype, ce, o),
-                            ue(HTMLMediaElement.prototype, $, o),
-                            ue(HTMLFrameSetElement.prototype, Q.concat(te), o),
-                            ue(HTMLBodyElement.prototype, Q.concat(te), o),
+                            ue(Document.prototype, se, o),
+                            void 0 !== i.SVGElement &&
+                              ue(i.SVGElement.prototype, se, o),
+                            ue(Element.prototype, se, o),
+                            ue(HTMLElement.prototype, se, o),
+                            ue(HTMLMediaElement.prototype, Q, o),
+                            ue(HTMLFrameSetElement.prototype, $.concat(te), o),
+                            ue(HTMLBodyElement.prototype, $.concat(te), o),
                             ue(HTMLFrameElement.prototype, ee, o),
                             ue(HTMLIFrameElement.prototype, ee, o);
-                          var c = a.HTMLMarqueeElement;
-                          c && ue(c.prototype, ne, o);
-                          var s = a.Worker;
-                          s && ue(s.prototype, ie, o);
+                          var s = i.HTMLMarqueeElement;
+                          s && ue(s.prototype, re, o);
+                          var c = i.Worker;
+                          c && ue(c.prototype, ae, o);
                         }
                         var u = t.XMLHttpRequest;
-                        u && ue(u.prototype, re, o);
+                        u && ue(u.prototype, ne, o);
                         var l = t.XMLHttpRequestEventTarget;
-                        l && ue(l && l.prototype, re, o),
+                        l && ue(l && l.prototype, ne, o),
                           "undefined" != typeof IDBIndex &&
                             (ue(IDBIndex.prototype, oe, o),
                             ue(IDBRequest.prototype, oe, o),
@@ -2825,7 +2840,7 @@ System.register(["single-spa"], function(e) {
                             ue(IDBDatabase.prototype, oe, o),
                             ue(IDBTransaction.prototype, oe, o),
                             ue(IDBCursor.prototype, oe, o)),
-                          r && ue(WebSocket.prototype, ae, o);
+                          n && ue(WebSocket.prototype, ie, o);
                       }
                     }
                     /**
@@ -2842,7 +2857,7 @@ System.register(["single-spa"], function(e) {
                           Object.getOwnPropertyDescriptor),
                         (K = Object.create),
                         (J = V("unconfigurables")),
-                        (Object.defineProperty = function(e, t, n) {
+                        (Object.defineProperty = function(e, t, r) {
                           if (he(e, t))
                             throw new TypeError(
                               "Cannot assign to read only property '" +
@@ -2850,16 +2865,16 @@ System.register(["single-spa"], function(e) {
                                 "' of " +
                                 e
                             );
-                          var r = n.configurable;
+                          var n = r.configurable;
                           return (
-                            "prototype" !== t && (n = de(e, t, n)),
-                            ve(e, t, n, r)
+                            "prototype" !== t && (r = de(e, t, r)),
+                            ve(e, t, r, n)
                           );
                         }),
                         (Object.defineProperties = function(e, t) {
                           return (
-                            Object.keys(t).forEach(function(n) {
-                              Object.defineProperty(e, n, t[n]);
+                            Object.keys(t).forEach(function(r) {
+                              Object.defineProperty(e, r, t[r]);
                             }),
                             e
                           );
@@ -2868,51 +2883,51 @@ System.register(["single-spa"], function(e) {
                           return (
                             "object" != typeof t ||
                               Object.isFrozen(t) ||
-                              Object.keys(t).forEach(function(n) {
-                                t[n] = de(e, n, t[n]);
+                              Object.keys(t).forEach(function(r) {
+                                t[r] = de(e, r, t[r]);
                               }),
                             K(e, t)
                           );
                         }),
                         (Object.getOwnPropertyDescriptor = function(e, t) {
-                          var n = Y(e, t);
-                          return n && he(e, t) && (n.configurable = !1), n;
+                          var r = Y(e, t);
+                          return r && he(e, t) && (r.configurable = !1), r;
                         });
                     }
-                    function pe(e, t, n) {
-                      var r = n.configurable;
-                      return ve(e, t, (n = de(e, t, n)), r);
+                    function pe(e, t, r) {
+                      var n = r.configurable;
+                      return ve(e, t, (r = de(e, t, r)), n);
                     }
                     function he(e, t) {
                       return e && e[J] && e[J][t];
                     }
-                    function de(e, t, n) {
+                    function de(e, t, r) {
                       return (
-                        Object.isFrozen(n) || (n.configurable = !0),
-                        n.configurable ||
+                        Object.isFrozen(r) || (r.configurable = !0),
+                        r.configurable ||
                           (e[J] ||
                             Object.isFrozen(e) ||
                             X(e, J, { writable: !0, value: {} }),
                           e[J] && (e[J][t] = !0)),
-                        n
+                        r
                       );
                     }
-                    function ve(e, t, n, r) {
+                    function ve(e, t, r, n) {
                       try {
-                        return X(e, t, n);
-                      } catch (a) {
-                        if (!n.configurable) throw a;
-                        void 0 === r
-                          ? delete n.configurable
-                          : (n.configurable = r);
+                        return X(e, t, r);
+                      } catch (i) {
+                        if (!r.configurable) throw i;
+                        void 0 === n
+                          ? delete r.configurable
+                          : (r.configurable = n);
                         try {
-                          return X(e, t, n);
-                        } catch (r) {
+                          return X(e, t, r);
+                        } catch (n) {
                           var o = null;
                           try {
-                            o = JSON.stringify(n);
+                            o = JSON.stringify(r);
                           } catch (e) {
-                            o = n.toString();
+                            o = r.toString();
                           }
                           console.log(
                             "Attempting to configure '" +
@@ -2922,7 +2937,7 @@ System.register(["single-spa"], function(e) {
                               "' on object '" +
                               e +
                               "' and got error, giving up: " +
-                              r
+                              n
                           );
                         }
                       }
@@ -2934,13 +2949,13 @@ System.register(["single-spa"], function(e) {
                      * Use of this source code is governed by an MIT-style license that can be
                      * found in the LICENSE file at https://angular.io/license
                      */ function ye(e, t) {
-                      var n = t.getGlobalObjects(),
-                        r = n.eventNames,
-                        o = n.globalSources,
-                        a = n.zoneSymbolEventNames,
-                        i = n.TRUE_STR,
-                        c = n.FALSE_STR,
-                        s = n.ZONE_SYMBOL_PREFIX,
+                      var r = t.getGlobalObjects(),
+                        n = r.eventNames,
+                        o = r.globalSources,
+                        i = r.zoneSymbolEventNames,
+                        a = r.TRUE_STR,
+                        s = r.FALSE_STR,
+                        c = r.ZONE_SYMBOL_PREFIX,
                         u = "ApplicationCache,EventSource,FileReader,InputMethodContext,MediaController,MessagePort,Node,Performance,SVGElementInstance,SharedWorker,TextTrack,TextTrackCue,TextTrackList,WebKitNamedFlow,Window,Worker,WorkerGlobalScope,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload,IDBRequest,IDBOpenDBRequest,IDBDatabase,IDBTransaction,IDBCursor,DBIndex,WebSocket".split(
                           ","
                         ),
@@ -2964,7 +2979,7 @@ System.register(["single-spa"], function(e) {
                           v = t.isIEOrEdge(),
                           y =
                             "function __BROWSERTOOLS_CONSOLE_SAFEFUNC() { [native code] }",
-                          g = {
+                          b = {
                             MSPointerCancel: "pointercancel",
                             MSPointerDown: "pointerdown",
                             MSPointerEnter: "pointerenter",
@@ -2975,31 +2990,31 @@ System.register(["single-spa"], function(e) {
                             MSPointerOver: "pointerover",
                             MSPointerUp: "pointerup"
                           },
-                          m = 0;
-                        m < r.length;
-                        m++
+                          g = 0;
+                        g < n.length;
+                        g++
                       ) {
-                        var b = s + ((w = r[m]) + c),
-                          _ = s + (w + i);
-                        (a[w] = {}), (a[w][c] = b), (a[w][i] = _);
+                        var m = c + ((T = n[g]) + s),
+                          _ = c + (T + a);
+                        (i[T] = {}), (i[T][s] = m), (i[T][a] = _);
                       }
-                      for (m = 0; m < p.length; m++)
+                      for (g = 0; g < p.length; g++)
                         for (
-                          var k = p[m], T = (o[k] = {}), E = 0;
-                          E < r.length;
+                          var k = p[g], w = (o[k] = {}), E = 0;
+                          E < n.length;
                           E++
                         ) {
-                          var w;
-                          T[(w = r[E])] = k + ".addEventListener:" + w;
+                          var T;
+                          w[(T = n[E])] = k + ".addEventListener:" + T;
                         }
                       var S = [];
-                      for (m = 0; m < l.length; m++) {
-                        var O = e[l[m]];
+                      for (g = 0; g < l.length; g++) {
+                        var O = e[l[g]];
                         S.push(O && O.prototype);
                       }
                       return (
                         t.patchEventTarget(e, S, {
-                          vh: function(e, t, n, r) {
+                          vh: function(e, t, r, n) {
                             if (!h && v) {
                               if (d)
                                 try {
@@ -3009,26 +3024,26 @@ System.register(["single-spa"], function(e) {
                                       (o = t.toString()) ||
                                     o == y
                                   )
-                                    return e.apply(n, r), !1;
+                                    return e.apply(r, n), !1;
                                 } catch (t) {
-                                  return e.apply(n, r), !1;
+                                  return e.apply(r, n), !1;
                                 }
                               else if (
                                 "[object FunctionWrapper]" ===
                                   (o = t.toString()) ||
                                 o == y
                               )
-                                return e.apply(n, r), !1;
+                                return e.apply(r, n), !1;
                             } else if (d)
                               try {
                                 t.toString();
                               } catch (t) {
-                                return e.apply(n, r), !1;
+                                return e.apply(r, n), !1;
                               }
                             return !0;
                           },
                           transferEventName: function(e) {
-                            return g[e] || e;
+                            return b[e] || e;
                           }
                         }),
                         (Zone[t.symbol("patchEventTarget")] = !!e.EventTarget),
@@ -3049,30 +3064,30 @@ System.register(["single-spa"], function(e) {
                      * Use of this source code is governed by an MIT-style license that can be
                      * found in the LICENSE file at https://angular.io/license
                      */
-                    function ge(e, t) {
-                      var n = e.getGlobalObjects(),
-                        r = n.isNode,
-                        o = n.isMix;
+                    function be(e, t) {
+                      var r = e.getGlobalObjects(),
+                        n = r.isNode,
+                        o = r.isMix;
                       if (
-                        (!r || o) &&
+                        (!n || o) &&
                         !(function(e, t) {
-                          var n = e.getGlobalObjects(),
-                            r = n.isBrowser,
-                            o = n.isMix;
+                          var r = e.getGlobalObjects(),
+                            n = r.isBrowser,
+                            o = r.isMix;
                           if (
-                            (r || o) &&
+                            (n || o) &&
                             !e.ObjectGetOwnPropertyDescriptor(
                               HTMLElement.prototype,
                               "onclick"
                             ) &&
                             "undefined" != typeof Element
                           ) {
-                            var a = e.ObjectGetOwnPropertyDescriptor(
+                            var i = e.ObjectGetOwnPropertyDescriptor(
                               Element.prototype,
                               "onclick"
                             );
-                            if (a && !a.configurable) return !1;
-                            if (a) {
+                            if (i && !i.configurable) return !1;
+                            if (i) {
                               e.ObjectDefineProperty(
                                 Element.prototype,
                                 "onclick",
@@ -3084,43 +3099,43 @@ System.register(["single-spa"], function(e) {
                                   }
                                 }
                               );
-                              var i = !!document.createElement("div").onclick;
+                              var a = !!document.createElement("div").onclick;
                               return (
                                 e.ObjectDefineProperty(
                                   Element.prototype,
                                   "onclick",
-                                  a
+                                  i
                                 ),
-                                i
+                                a
                               );
                             }
                           }
-                          var c = t.XMLHttpRequest;
-                          if (!c) return !1;
-                          var s = c.prototype,
+                          var s = t.XMLHttpRequest;
+                          if (!s) return !1;
+                          var c = s.prototype,
                             u = e.ObjectGetOwnPropertyDescriptor(
-                              s,
+                              c,
                               "onreadystatechange"
                             );
                           if (u)
                             return (
-                              e.ObjectDefineProperty(s, "onreadystatechange", {
+                              e.ObjectDefineProperty(c, "onreadystatechange", {
                                 enumerable: !0,
                                 configurable: !0,
                                 get: function() {
                                   return !0;
                                 }
                               }),
-                              (i = !!(f = new c()).onreadystatechange),
+                              (a = !!(f = new s()).onreadystatechange),
                               e.ObjectDefineProperty(
-                                s,
+                                c,
                                 "onreadystatechange",
                                 u || {}
                               ),
-                              i
+                              a
                             );
                           var l = e.symbol("fake");
-                          e.ObjectDefineProperty(s, "onreadystatechange", {
+                          e.ObjectDefineProperty(c, "onreadystatechange", {
                             enumerable: !0,
                             configurable: !0,
                             get: function() {
@@ -3130,44 +3145,44 @@ System.register(["single-spa"], function(e) {
                               this[l] = e;
                             }
                           });
-                          var f = new c(),
+                          var f = new s(),
                             p = function() {};
                           return (
                             (f.onreadystatechange = p),
-                            (i = f[l] === p),
+                            (a = f[l] === p),
                             (f.onreadystatechange = null),
-                            i
+                            a
                           );
                         })(e, t)
                       ) {
-                        var a = "undefined" != typeof WebSocket;
+                        var i = "undefined" != typeof WebSocket;
                         !(function(e) {
                           for (
                             var t = e.getGlobalObjects().eventNames,
-                              n = e.symbol("unbound"),
-                              r = function(r) {
-                                var o = t[r],
-                                  a = "on" + o;
+                              r = e.symbol("unbound"),
+                              n = function(n) {
+                                var o = t[n],
+                                  i = "on" + o;
                                 self.addEventListener(
                                   o,
                                   function(t) {
-                                    var r,
+                                    var n,
                                       o,
-                                      i = t.target;
+                                      a = t.target;
                                     for (
-                                      o = i
-                                        ? i.constructor.name + "." + a
-                                        : "unknown." + a;
-                                      i;
+                                      o = a
+                                        ? a.constructor.name + "." + i
+                                        : "unknown." + i;
+                                      a;
 
                                     )
-                                      i[a] &&
-                                        !i[a][n] &&
-                                        (((r = e.wrapWithCurrentZone(i[a], o))[
-                                          n
-                                        ] = i[a]),
-                                        (i[a] = r)),
-                                        (i = i.parentElement);
+                                      a[i] &&
+                                        !a[i][r] &&
+                                        (((n = e.wrapWithCurrentZone(a[i], o))[
+                                          r
+                                        ] = a[i]),
+                                        (a[i] = n)),
+                                        (a = a.parentElement);
                                   },
                                   !0
                                 );
@@ -3176,7 +3191,7 @@ System.register(["single-spa"], function(e) {
                             o < t.length;
                             o++
                           )
-                            r(o);
+                            n(o);
                         })(
                           /**
                            * @license
@@ -3187,97 +3202,97 @@ System.register(["single-spa"], function(e) {
                            */ e
                         ),
                           e.patchClass("XMLHttpRequest"),
-                          a &&
+                          i &&
                             (function(e, t) {
-                              var n = e.getGlobalObjects(),
-                                r = n.ADD_EVENT_LISTENER_STR,
-                                o = n.REMOVE_EVENT_LISTENER_STR,
-                                a = t.WebSocket;
+                              var r = e.getGlobalObjects(),
+                                n = r.ADD_EVENT_LISTENER_STR,
+                                o = r.REMOVE_EVENT_LISTENER_STR,
+                                i = t.WebSocket;
                               t.EventTarget ||
-                                e.patchEventTarget(t, [a.prototype]),
-                                (t.WebSocket = function(t, n) {
-                                  var i,
-                                    c,
-                                    s =
+                                e.patchEventTarget(t, [i.prototype]),
+                                (t.WebSocket = function(t, r) {
+                                  var a,
+                                    s,
+                                    c =
                                       arguments.length > 1
-                                        ? new a(t, n)
-                                        : new a(t),
+                                        ? new i(t, r)
+                                        : new i(t),
                                     u = e.ObjectGetOwnPropertyDescriptor(
-                                      s,
+                                      c,
                                       "onmessage"
                                     );
                                   return (
                                     u && !1 === u.configurable
-                                      ? ((i = e.ObjectCreate(s)),
-                                        (c = s),
-                                        [r, o, "send", "close"].forEach(
+                                      ? ((a = e.ObjectCreate(c)),
+                                        (s = c),
+                                        [n, o, "send", "close"].forEach(
                                           function(t) {
-                                            i[t] = function() {
-                                              var n = e.ArraySlice.call(
+                                            a[t] = function() {
+                                              var r = e.ArraySlice.call(
                                                 arguments
                                               );
-                                              if (t === r || t === o) {
-                                                var a =
-                                                  n.length > 0 ? n[0] : void 0;
-                                                if (a) {
-                                                  var c = Zone.__symbol__(
-                                                    "ON_PROPERTY" + a
+                                              if (t === n || t === o) {
+                                                var i =
+                                                  r.length > 0 ? r[0] : void 0;
+                                                if (i) {
+                                                  var s = Zone.__symbol__(
+                                                    "ON_PROPERTY" + i
                                                   );
-                                                  s[c] = i[c];
+                                                  c[s] = a[s];
                                                 }
                                               }
-                                              return s[t].apply(s, n);
+                                              return c[t].apply(c, r);
                                             };
                                           }
                                         ))
-                                      : (i = s),
+                                      : (a = c),
                                     e.patchOnProperties(
-                                      i,
+                                      a,
                                       ["close", "error", "message", "open"],
-                                      c
+                                      s
                                     ),
-                                    i
+                                    a
                                   );
                                 });
-                              var i = t.WebSocket;
-                              for (var c in a) i[c] = a[c];
+                              var a = t.WebSocket;
+                              for (var s in i) a[s] = i[s];
                             })(e, t),
                           (Zone[e.symbol("patchEvents")] = !0);
                       }
                     }
-                    Zone.__load_patch("util", function(n, r, i) {
-                      (i.patchOnProperties = S),
-                        (i.patchMethod = Z),
-                        (i.bindArguments = y),
-                        (i.patchMacroTask = D);
-                      var c = r.__symbol__("BLACK_LISTED_EVENTS"),
-                        l = r.__symbol__("UNPATCHED_EVENTS");
-                      n[l] && (n[c] = n[l]),
-                        n[c] && (r[c] = r[l] = n[c]),
-                        (i.patchEventPrototype = q),
-                        (i.patchEventTarget = B),
-                        (i.isIEOrEdge = z),
-                        (i.ObjectDefineProperty = t),
-                        (i.ObjectGetOwnPropertyDescriptor = e),
-                        (i.ObjectCreate = o),
-                        (i.ArraySlice = a),
-                        (i.patchClass = P),
-                        (i.wrapWithCurrentZone = u),
-                        (i.filterProperties = se),
-                        (i.attachOriginToPatched = j),
-                        (i._redefineProperty = Object.defineProperty),
-                        (i.patchCallbacks = U),
-                        (i.getGlobalObjects = function() {
+                    Zone.__load_patch("util", function(r, n, a) {
+                      (a.patchOnProperties = S),
+                        (a.patchMethod = j),
+                        (a.bindArguments = y),
+                        (a.patchMacroTask = D);
+                      var s = n.__symbol__("BLACK_LISTED_EVENTS"),
+                        l = n.__symbol__("UNPATCHED_EVENTS");
+                      r[l] && (r[s] = r[l]),
+                        r[s] && (n[s] = n[l] = r[s]),
+                        (a.patchEventPrototype = U),
+                        (a.patchEventTarget = B),
+                        (a.isIEOrEdge = z),
+                        (a.ObjectDefineProperty = t),
+                        (a.ObjectGetOwnPropertyDescriptor = e),
+                        (a.ObjectCreate = o),
+                        (a.ArraySlice = i),
+                        (a.patchClass = P),
+                        (a.wrapWithCurrentZone = u),
+                        (a.filterProperties = ce),
+                        (a.attachOriginToPatched = x),
+                        (a._redefineProperty = Object.defineProperty),
+                        (a.patchCallbacks = q),
+                        (a.getGlobalObjects = function() {
                           return {
-                            globalSources: F,
+                            globalSources: H,
                             zoneSymbolEventNames: N,
-                            eventNames: ce,
+                            eventNames: se,
                             isBrowser: _,
                             isMix: k,
-                            isNode: b,
+                            isNode: m,
                             TRUE_STR: "true",
                             FALSE_STR: "false",
-                            ZONE_SYMBOL_PREFIX: s,
+                            ZONE_SYMBOL_PREFIX: c,
                             ADD_EVENT_LISTENER_STR: "addEventListener",
                             REMOVE_EVENT_LISTENER_STR: "removeEventListener"
                           };
@@ -3292,22 +3307,22 @@ System.register(["single-spa"], function(e) {
                        */
                       (function(e) {
                         var t,
-                          n = e.__Zone_symbol_prefix || "__zone_symbol__";
-                        e[((t = "legacyPatch"), n + t)] = function() {
+                          r = e.__Zone_symbol_prefix || "__zone_symbol__";
+                        e[((t = "legacyPatch"), r + t)] = function() {
                           var t = e.Zone;
-                          t.__load_patch("defineProperty", function(e, t, n) {
-                            (n._redefineProperty = pe), fe();
+                          t.__load_patch("defineProperty", function(e, t, r) {
+                            (r._redefineProperty = pe), fe();
                           }),
                             t.__load_patch("registerElement", function(
                               e,
                               t,
-                              n
+                              r
                             ) {
                               !(function(e, t) {
-                                var n = t.getGlobalObjects(),
-                                  r = n.isBrowser,
-                                  o = n.isMix;
-                                (r || o) &&
+                                var r = t.getGlobalObjects(),
+                                  n = r.isBrowser,
+                                  o = r.isMix;
+                                (n || o) &&
                                   "registerElement" in e.document &&
                                   t.patchCallbacks(
                                     t,
@@ -3321,21 +3336,21 @@ System.register(["single-spa"], function(e) {
                                       "attributeChangedCallback"
                                     ]
                                   );
-                              })(e, n);
+                              })(e, r);
                             }),
                             t.__load_patch("EventTargetLegacy", function(
                               e,
                               t,
-                              n
+                              r
                             ) {
-                              ye(e, n), ge(n, e);
+                              ye(e, r), be(r, e);
                             });
                         };
                       })(
                         "undefined" != typeof window
                           ? window
-                          : void 0 !== r
-                          ? r
+                          : void 0 !== n
+                          ? n
                           : "undefined" != typeof self
                           ? self
                           : {}
@@ -3347,50 +3362,50 @@ System.register(["single-spa"], function(e) {
                      * Use of this source code is governed by an MIT-style license that can be
                      * found in the LICENSE file at https://angular.io/license
                      */
-                    var me = f("zoneTask");
-                    function be(e, t, n, r) {
+                    var ge = f("zoneTask");
+                    function me(e, t, r, n) {
                       var o = null,
-                        a = null;
-                      n += r;
-                      var i = {};
-                      function c(t) {
-                        var n = t.data;
+                        i = null;
+                      r += n;
+                      var a = {};
+                      function s(t) {
+                        var r = t.data;
                         return (
-                          (n.args[0] = function() {
+                          (r.args[0] = function() {
                             try {
                               t.invoke.apply(this, arguments);
                             } finally {
                               (t.data && t.data.isPeriodic) ||
-                                ("number" == typeof n.handleId
-                                  ? delete i[n.handleId]
-                                  : n.handleId && (n.handleId[me] = null));
+                                ("number" == typeof r.handleId
+                                  ? delete a[r.handleId]
+                                  : r.handleId && (r.handleId[ge] = null));
                             }
                           }),
-                          (n.handleId = o.apply(e, n.args)),
+                          (r.handleId = o.apply(e, r.args)),
                           t
                         );
                       }
-                      function s(e) {
-                        return a(e.data.handleId);
+                      function c(e) {
+                        return i(e.data.handleId);
                       }
-                      (o = Z(e, (t += r), function(n) {
-                        return function(o, a) {
-                          if ("function" == typeof a[0]) {
+                      (o = j(e, (t += n), function(r) {
+                        return function(o, i) {
+                          if ("function" == typeof i[0]) {
                             var u = {
-                                isPeriodic: "Interval" === r,
+                                isPeriodic: "Interval" === n,
                                 delay:
-                                  "Timeout" === r || "Interval" === r
-                                    ? a[1] || 0
+                                  "Timeout" === n || "Interval" === n
+                                    ? i[1] || 0
                                     : void 0,
-                                args: a
+                                args: i
                               },
-                              f = l(t, a[0], u, c, s);
+                              f = l(t, i[0], u, s, c);
                             if (!f) return f;
                             var p = f.data.handleId;
                             return (
                               "number" == typeof p
-                                ? (i[p] = f)
-                                : p && (p[me] = f),
+                                ? (a[p] = f)
+                                : p && (p[ge] = f),
                               p &&
                                 p.ref &&
                                 p.unref &&
@@ -3401,25 +3416,25 @@ System.register(["single-spa"], function(e) {
                               "number" == typeof p || p ? p : f
                             );
                           }
-                          return n.apply(e, a);
+                          return r.apply(e, i);
                         };
                       })),
-                        (a = Z(e, n, function(t) {
-                          return function(n, r) {
+                        (i = j(e, r, function(t) {
+                          return function(r, n) {
                             var o,
-                              a = r[0];
-                            "number" == typeof a
-                              ? (o = i[a])
-                              : (o = a && a[me]) || (o = a),
+                              i = n[0];
+                            "number" == typeof i
+                              ? (o = a[i])
+                              : (o = i && i[ge]) || (o = i),
                               o && "string" == typeof o.type
                                 ? "notScheduled" !== o.state &&
                                   ((o.cancelFn && o.data.isPeriodic) ||
                                     0 === o.runCount) &&
-                                  ("number" == typeof a
-                                    ? delete i[a]
-                                    : a && (a[me] = null),
+                                  ("number" == typeof i
+                                    ? delete a[i]
+                                    : i && (i[ge] = null),
                                   o.zone.cancelTask(o))
-                                : t.apply(e, r);
+                                : t.apply(e, n);
                           };
                         }));
                     }
@@ -3440,20 +3455,20 @@ System.register(["single-spa"], function(e) {
                     function _e(e, t) {
                       if (!Zone[t.symbol("patchEventTarget")]) {
                         for (
-                          var n = t.getGlobalObjects(),
-                            r = n.eventNames,
-                            o = n.zoneSymbolEventNames,
-                            a = n.TRUE_STR,
-                            i = n.FALSE_STR,
-                            c = n.ZONE_SYMBOL_PREFIX,
-                            s = 0;
-                          s < r.length;
-                          s++
+                          var r = t.getGlobalObjects(),
+                            n = r.eventNames,
+                            o = r.zoneSymbolEventNames,
+                            i = r.TRUE_STR,
+                            a = r.FALSE_STR,
+                            s = r.ZONE_SYMBOL_PREFIX,
+                            c = 0;
+                          c < n.length;
+                          c++
                         ) {
-                          var u = r[s],
-                            l = c + (u + i),
-                            f = c + (u + a);
-                          (o[u] = {}), (o[u][i] = l), (o[u][a] = f);
+                          var u = n[c],
+                            l = s + (u + a),
+                            f = s + (u + i);
+                          (o[u] = {}), (o[u][a] = l), (o[u][i] = f);
                         }
                         var p = e.EventTarget;
                         if (p && p.prototype)
@@ -3472,14 +3487,14 @@ System.register(["single-spa"], function(e) {
                       t && t();
                     }),
                       Zone.__load_patch("timers", function(e) {
-                        be(e, "set", "clear", "Timeout"),
-                          be(e, "set", "clear", "Interval"),
-                          be(e, "set", "clear", "Immediate");
+                        me(e, "set", "clear", "Timeout"),
+                          me(e, "set", "clear", "Interval"),
+                          me(e, "set", "clear", "Immediate");
                       }),
                       Zone.__load_patch("requestAnimationFrame", function(e) {
-                        be(e, "request", "cancel", "AnimationFrame"),
-                          be(e, "mozRequest", "mozCancel", "AnimationFrame"),
-                          be(
+                        me(e, "request", "cancel", "AnimationFrame"),
+                          me(e, "mozRequest", "mozCancel", "AnimationFrame"),
+                          me(
                             e,
                             "webkitRequest",
                             "webkitCancel",
@@ -3488,39 +3503,39 @@ System.register(["single-spa"], function(e) {
                       }),
                       Zone.__load_patch("blocking", function(e, t) {
                         for (
-                          var n = ["alert", "prompt", "confirm"], r = 0;
-                          r < n.length;
-                          r++
+                          var r = ["alert", "prompt", "confirm"], n = 0;
+                          n < r.length;
+                          n++
                         )
-                          Z(e, n[r], function(n, r, o) {
-                            return function(r, a) {
-                              return t.current.run(n, e, a, o);
+                          j(e, r[n], function(r, n, o) {
+                            return function(n, i) {
+                              return t.current.run(r, e, i, o);
                             };
                           });
                       }),
-                      Zone.__load_patch("EventTarget", function(e, t, n) {
+                      Zone.__load_patch("EventTarget", function(e, t, r) {
                         !(function(e, t) {
                           t.patchEventPrototype(e, t);
-                        })(e, n),
-                          _e(e, n);
-                        var r = e.XMLHttpRequestEventTarget;
-                        r &&
-                          r.prototype &&
-                          n.patchEventTarget(e, [r.prototype]),
+                        })(e, r),
+                          _e(e, r);
+                        var n = e.XMLHttpRequestEventTarget;
+                        n &&
+                          n.prototype &&
+                          r.patchEventTarget(e, [n.prototype]),
                           P("MutationObserver"),
                           P("WebKitMutationObserver"),
                           P("IntersectionObserver"),
                           P("FileReader");
                       }),
-                      Zone.__load_patch("on_property", function(e, t, n) {
-                        le(n, e);
+                      Zone.__load_patch("on_property", function(e, t, r) {
+                        le(r, e);
                       }),
-                      Zone.__load_patch("customElements", function(e, t, n) {
+                      Zone.__load_patch("customElements", function(e, t, r) {
                         !(function(e, t) {
-                          var n = t.getGlobalObjects(),
-                            r = n.isBrowser,
-                            o = n.isMix;
-                          (r || o) &&
+                          var r = t.getGlobalObjects(),
+                            n = r.isBrowser,
+                            o = r.isMix;
+                          (n || o) &&
                             e.customElements &&
                             "customElements" in e &&
                             t.patchCallbacks(
@@ -3535,55 +3550,55 @@ System.register(["single-spa"], function(e) {
                                 "attributeChangedCallback"
                               ]
                             );
-                        })(e, n);
+                        })(e, r);
                       }),
                       Zone.__load_patch("XHR", function(e, t) {
                         !(function(e) {
                           var p = e.XMLHttpRequest;
                           if (p) {
                             var h = p.prototype,
-                              d = h[i],
-                              v = h[c];
+                              d = h[a],
+                              v = h[s];
                             if (!d) {
                               var y = e.XMLHttpRequestEventTarget;
                               if (y) {
-                                var g = y.prototype;
-                                (d = g[i]), (v = g[c]);
+                                var b = y.prototype;
+                                (d = b[a]), (v = b[s]);
                               }
                             }
-                            var m = Z(h, "open", function() {
+                            var g = j(h, "open", function() {
                                 return function(e, t) {
                                   return (
-                                    (e[r] = 0 == t[2]),
-                                    (e[s] = t[1]),
-                                    m.apply(e, t)
+                                    (e[n] = 0 == t[2]),
+                                    (e[c] = t[1]),
+                                    g.apply(e, t)
                                   );
                                 };
                               }),
-                              b = f("fetchTaskAborting"),
+                              m = f("fetchTaskAborting"),
                               _ = f("fetchTaskScheduling"),
-                              k = Z(h, "send", function() {
-                                return function(e, n) {
-                                  if (!0 === t.current[_]) return k.apply(e, n);
-                                  if (e[r]) return k.apply(e, n);
+                              k = j(h, "send", function() {
+                                return function(e, r) {
+                                  if (!0 === t.current[_]) return k.apply(e, r);
+                                  if (e[n]) return k.apply(e, r);
                                   var o = {
                                       target: e,
-                                      url: e[s],
+                                      url: e[c],
                                       isPeriodic: !1,
-                                      args: n,
+                                      args: r,
                                       aborted: !1
                                     },
-                                    a = l("XMLHttpRequest.send", w, o, E, S);
+                                    i = l("XMLHttpRequest.send", T, o, E, S);
                                   e &&
                                     !0 === e[u] &&
                                     !o.aborted &&
-                                    "scheduled" === a.state &&
-                                    a.invoke();
+                                    "scheduled" === i.state &&
+                                    i.invoke();
                                 };
                               }),
-                              T = Z(h, "abort", function() {
-                                return function(e, r) {
-                                  var o = e[n];
+                              w = j(h, "abort", function() {
+                                return function(e, n) {
+                                  var o = e[r];
                                   if (o && "string" == typeof o.type) {
                                     if (
                                       null == o.cancelFn ||
@@ -3591,91 +3606,91 @@ System.register(["single-spa"], function(e) {
                                     )
                                       return;
                                     o.zone.cancelTask(o);
-                                  } else if (!0 === t.current[b]) return T.apply(e, r);
+                                  } else if (!0 === t.current[m]) return w.apply(e, n);
                                 };
                               });
                           }
                           function E(e) {
-                            var r = e.data,
-                              s = r.target;
-                            (s[a] = !1), (s[u] = !1);
-                            var l = s[o];
-                            d || ((d = s[i]), (v = s[c])),
-                              l && v.call(s, "readystatechange", l);
-                            var f = (s[o] = function() {
-                              if (s.readyState === s.DONE)
+                            var n = e.data,
+                              c = n.target;
+                            (c[i] = !1), (c[u] = !1);
+                            var l = c[o];
+                            d || ((d = c[a]), (v = c[s])),
+                              l && v.call(c, "readystatechange", l);
+                            var f = (c[o] = function() {
+                              if (c.readyState === c.DONE)
                                 if (
-                                  !r.aborted &&
-                                  s[a] &&
+                                  !n.aborted &&
+                                  c[i] &&
                                   "scheduled" === e.state
                                 ) {
-                                  var n = s[t.__symbol__("loadfalse")];
-                                  if (n && n.length > 0) {
+                                  var r = c[t.__symbol__("loadfalse")];
+                                  if (r && r.length > 0) {
                                     var o = e.invoke;
                                     (e.invoke = function() {
                                       for (
-                                        var n = s[t.__symbol__("loadfalse")],
-                                          a = 0;
-                                        a < n.length;
-                                        a++
+                                        var r = c[t.__symbol__("loadfalse")],
+                                          i = 0;
+                                        i < r.length;
+                                        i++
                                       )
-                                        n[a] === e && n.splice(a, 1);
-                                      r.aborted ||
+                                        r[i] === e && r.splice(i, 1);
+                                      n.aborted ||
                                         "scheduled" !== e.state ||
                                         o.call(e);
                                     }),
-                                      n.push(e);
+                                      r.push(e);
                                   } else e.invoke();
-                                } else r.aborted || !1 !== s[a] || (s[u] = !0);
+                                } else n.aborted || !1 !== c[i] || (c[u] = !0);
                             });
                             return (
-                              d.call(s, "readystatechange", f),
-                              s[n] || (s[n] = e),
-                              k.apply(s, r.args),
-                              (s[a] = !0),
+                              d.call(c, "readystatechange", f),
+                              c[r] || (c[r] = e),
+                              k.apply(c, n.args),
+                              (c[i] = !0),
                               e
                             );
                           }
-                          function w() {}
+                          function T() {}
                           function S(e) {
                             var t = e.data;
-                            return (t.aborted = !0), T.apply(t.target, t.args);
+                            return (t.aborted = !0), w.apply(t.target, t.args);
                           }
                         })(e);
-                        var n = f("xhrTask"),
-                          r = f("xhrSync"),
+                        var r = f("xhrTask"),
+                          n = f("xhrSync"),
                           o = f("xhrListener"),
-                          a = f("xhrScheduled"),
-                          s = f("xhrURL"),
+                          i = f("xhrScheduled"),
+                          c = f("xhrURL"),
                           u = f("xhrErrorBeforeScheduled");
                       }),
                       Zone.__load_patch("geolocation", function(t) {
                         t.navigator &&
                           t.navigator.geolocation &&
-                          (function(t, n) {
+                          (function(t, r) {
                             for (
-                              var r = t.constructor.name,
+                              var n = t.constructor.name,
                                 o = function(o) {
-                                  var a = n[o],
-                                    i = t[a];
-                                  if (i) {
-                                    if (!g(e(t, a))) return "continue";
-                                    t[a] = (function(e) {
+                                  var i = r[o],
+                                    a = t[i];
+                                  if (a) {
+                                    if (!b(e(t, i))) return "continue";
+                                    t[i] = (function(e) {
                                       var t = function() {
                                         return e.apply(
                                           this,
-                                          y(arguments, r + "." + a)
+                                          y(arguments, n + "." + i)
                                         );
                                       };
-                                      return j(t, e), t;
-                                    })(i);
+                                      return x(t, e), t;
+                                    })(a);
                                   }
                                 },
-                                a = 0;
-                              a < n.length;
-                              a++
+                                i = 0;
+                              i < r.length;
+                              i++
                             )
-                              o(a);
+                              o(i);
                           })(t.navigator.geolocation, [
                             "getCurrentPosition",
                             "watchPosition"
@@ -3685,57 +3700,57 @@ System.register(["single-spa"], function(e) {
                         e,
                         t
                       ) {
-                        function n(t) {
-                          return function(n) {
-                            W(e, t).forEach(function(r) {
+                        function r(t) {
+                          return function(r) {
+                            W(e, t).forEach(function(n) {
                               var o = e.PromiseRejectionEvent;
                               if (o) {
-                                var a = new o(t, {
-                                  promise: n.promise,
-                                  reason: n.rejection
+                                var i = new o(t, {
+                                  promise: r.promise,
+                                  reason: r.rejection
                                 });
-                                r.invoke(a);
+                                n.invoke(i);
                               }
                             });
                           };
                         }
                         e.PromiseRejectionEvent &&
-                          ((t[f("unhandledPromiseRejectionHandler")] = n(
+                          ((t[f("unhandledPromiseRejectionHandler")] = r(
                             "unhandledrejection"
                           )),
-                          (t[f("rejectionHandledHandler")] = n(
+                          (t[f("rejectionHandledHandler")] = r(
                             "rejectionhandled"
                           )));
                       });
                   })
-                    ? o.call(t, n, t, e)
-                    : o) || (e.exports = a);
-            }.call(this, n(7)));
+                    ? o.call(t, r, t, e)
+                    : o) || (e.exports = i);
+            }.call(this, r(8)));
           },
           function(e, t) {
-            var n;
-            n = (function() {
+            var r;
+            r = (function() {
               return this;
             })();
             try {
-              n = n || new Function("return this")();
+              r = r || new Function("return this")();
             } catch (e) {
-              "object" == typeof window && (n = window);
+              "object" == typeof window && (r = window);
             }
-            e.exports = n;
+            e.exports = r;
           },
-          function(e, t, n) {
+          function(e, t, r) {
             "use strict";
-            n.r(t);
-            var r = n(0),
-              o = n.n(r),
-              a = n(1),
-              i = n.n(a),
-              c = (n(6), n(2)),
-              s = n(3),
-              u = n.n(s),
-              l = n(4),
-              f = n.n(l),
+            r.r(t);
+            var n = r(0),
+              o = r.n(n),
+              i = r(1),
+              a = r.n(i),
+              s = (r(7), r(2)),
+              c = r(3),
+              u = r.n(c),
+              l = r(4),
+              f = r.n(l),
               p = (function() {
                 function e() {
                   u()(this, e), (this.stores = []);
@@ -3762,8 +3777,8 @@ System.register(["single-spa"], function(e) {
                         var e = {};
                         return (
                           this.stores.forEach(function(t) {
-                            var n = t.getState();
-                            e[n.namespace] = n;
+                            var r = t.getState();
+                            e[r.namespace] = r;
                           }),
                           e
                         );
@@ -3772,41 +3787,759 @@ System.register(["single-spa"], function(e) {
                   ]),
                   e
                 );
+              })(),
+              h = r(5),
+              d = r.n(h),
+              v = function(e, t) {
+                return (v =
+                  Object.setPrototypeOf ||
+                  ({ __proto__: [] } instanceof Array &&
+                    function(e, t) {
+                      e.__proto__ = t;
+                    }) ||
+                  function(e, t) {
+                    for (var r in t) t.hasOwnProperty(r) && (e[r] = t[r]);
+                  })(e, t);
+              };
+            function y(e, t) {
+              function r() {
+                this.constructor = e;
+              }
+              v(e, t),
+                (e.prototype =
+                  null === t
+                    ? Object.create(t)
+                    : ((r.prototype = t.prototype), new r()));
+            }
+            function b(e) {
+              return "function" == typeof e;
+            }
+            var g = !1,
+              m = {
+                Promise: void 0,
+                set useDeprecatedSynchronousErrorHandling(e) {
+                  e && new Error().stack;
+                  g = e;
+                },
+                get useDeprecatedSynchronousErrorHandling() {
+                  return g;
+                }
+              };
+            function _(e) {
+              setTimeout(function() {
+                throw e;
+              }, 0);
+            }
+            var k = {
+                closed: !0,
+                next: function(e) {},
+                error: function(e) {
+                  if (m.useDeprecatedSynchronousErrorHandling) throw e;
+                  _(e);
+                },
+                complete: function() {}
+              },
+              w = (function() {
+                return (
+                  Array.isArray ||
+                  function(e) {
+                    return e && "number" == typeof e.length;
+                  }
+                );
               })();
-            function h(e) {
+            var E = (function() {
+                function e(e) {
+                  return (
+                    Error.call(this),
+                    (this.message = e
+                      ? e.length +
+                        " errors occurred during unsubscription:\n" +
+                        e
+                          .map(function(e, t) {
+                            return t + 1 + ") " + e.toString();
+                          })
+                          .join("\n  ")
+                      : ""),
+                    (this.name = "UnsubscriptionError"),
+                    (this.errors = e),
+                    this
+                  );
+                }
+                return (e.prototype = Object.create(Error.prototype)), e;
+              })(),
+              T = (function() {
+                function e(e) {
+                  (this.closed = !1),
+                    (this._parentOrParents = null),
+                    (this._subscriptions = null),
+                    e && (this._unsubscribe = e);
+                }
+                return (
+                  (e.prototype.unsubscribe = function() {
+                    var t;
+                    if (!this.closed) {
+                      var r,
+                        n = this._parentOrParents,
+                        o = this._unsubscribe,
+                        i = this._subscriptions;
+                      if (
+                        ((this.closed = !0),
+                        (this._parentOrParents = null),
+                        (this._subscriptions = null),
+                        n instanceof e)
+                      )
+                        n.remove(this);
+                      else if (null !== n)
+                        for (var a = 0; a < n.length; ++a) {
+                          n[a].remove(this);
+                        }
+                      if (b(o))
+                        try {
+                          o.call(this);
+                        } catch (e) {
+                          t = e instanceof E ? S(e.errors) : [e];
+                        }
+                      if (w(i)) {
+                        a = -1;
+                        for (var s = i.length; ++a < s; ) {
+                          var c = i[a];
+                          if (null !== (r = c) && "object" == typeof r)
+                            try {
+                              c.unsubscribe();
+                            } catch (e) {
+                              (t = t || []),
+                                e instanceof E
+                                  ? (t = t.concat(S(e.errors)))
+                                  : t.push(e);
+                            }
+                        }
+                      }
+                      if (t) throw new E(t);
+                    }
+                  }),
+                  (e.prototype.add = function(t) {
+                    var r = t;
+                    if (!t) return e.EMPTY;
+                    switch (typeof t) {
+                      case "function":
+                        r = new e(t);
+                      case "object":
+                        if (
+                          r === this ||
+                          r.closed ||
+                          "function" != typeof r.unsubscribe
+                        )
+                          return r;
+                        if (this.closed) return r.unsubscribe(), r;
+                        if (!(r instanceof e)) {
+                          var n = r;
+                          (r = new e())._subscriptions = [n];
+                        }
+                        break;
+                      default:
+                        throw new Error(
+                          "unrecognized teardown " +
+                            t +
+                            " added to Subscription."
+                        );
+                    }
+                    var o = r._parentOrParents;
+                    if (null === o) r._parentOrParents = this;
+                    else if (o instanceof e) {
+                      if (o === this) return r;
+                      r._parentOrParents = [o, this];
+                    } else {
+                      if (-1 !== o.indexOf(this)) return r;
+                      o.push(this);
+                    }
+                    var i = this._subscriptions;
+                    return (
+                      null === i ? (this._subscriptions = [r]) : i.push(r), r
+                    );
+                  }),
+                  (e.prototype.remove = function(e) {
+                    var t = this._subscriptions;
+                    if (t) {
+                      var r = t.indexOf(e);
+                      -1 !== r && t.splice(r, 1);
+                    }
+                  }),
+                  (e.EMPTY = (function(e) {
+                    return (e.closed = !0), e;
+                  })(new e())),
+                  e
+                );
+              })();
+            function S(e) {
+              return e.reduce(function(e, t) {
+                return e.concat(t instanceof E ? t.errors : t);
+              }, []);
+            }
+            var O = (function() {
+                return "function" == typeof Symbol
+                  ? Symbol("rxSubscriber")
+                  : "@@rxSubscriber_" + Math.random();
+              })(),
+              P = (function(e) {
+                function t(r, n, o) {
+                  var i = e.call(this) || this;
+                  switch (
+                    ((i.syncErrorValue = null),
+                    (i.syncErrorThrown = !1),
+                    (i.syncErrorThrowable = !1),
+                    (i.isStopped = !1),
+                    arguments.length)
+                  ) {
+                    case 0:
+                      i.destination = k;
+                      break;
+                    case 1:
+                      if (!r) {
+                        i.destination = k;
+                        break;
+                      }
+                      if ("object" == typeof r) {
+                        r instanceof t
+                          ? ((i.syncErrorThrowable = r.syncErrorThrowable),
+                            (i.destination = r),
+                            r.add(i))
+                          : ((i.syncErrorThrowable = !0),
+                            (i.destination = new j(i, r)));
+                        break;
+                      }
+                    default:
+                      (i.syncErrorThrowable = !0),
+                        (i.destination = new j(i, r, n, o));
+                  }
+                  return i;
+                }
+                return (
+                  y(t, e),
+                  (t.prototype[O] = function() {
+                    return this;
+                  }),
+                  (t.create = function(e, r, n) {
+                    var o = new t(e, r, n);
+                    return (o.syncErrorThrowable = !1), o;
+                  }),
+                  (t.prototype.next = function(e) {
+                    this.isStopped || this._next(e);
+                  }),
+                  (t.prototype.error = function(e) {
+                    this.isStopped || ((this.isStopped = !0), this._error(e));
+                  }),
+                  (t.prototype.complete = function() {
+                    this.isStopped || ((this.isStopped = !0), this._complete());
+                  }),
+                  (t.prototype.unsubscribe = function() {
+                    this.closed ||
+                      ((this.isStopped = !0),
+                      e.prototype.unsubscribe.call(this));
+                  }),
+                  (t.prototype._next = function(e) {
+                    this.destination.next(e);
+                  }),
+                  (t.prototype._error = function(e) {
+                    this.destination.error(e), this.unsubscribe();
+                  }),
+                  (t.prototype._complete = function() {
+                    this.destination.complete(), this.unsubscribe();
+                  }),
+                  (t.prototype._unsubscribeAndRecycle = function() {
+                    var e = this._parentOrParents;
+                    return (
+                      (this._parentOrParents = null),
+                      this.unsubscribe(),
+                      (this.closed = !1),
+                      (this.isStopped = !1),
+                      (this._parentOrParents = e),
+                      this
+                    );
+                  }),
+                  t
+                );
+              })(T),
+              j = (function(e) {
+                function t(t, r, n, o) {
+                  var i,
+                    a = e.call(this) || this;
+                  a._parentSubscriber = t;
+                  var s = a;
+                  return (
+                    b(r)
+                      ? (i = r)
+                      : r &&
+                        ((i = r.next),
+                        (n = r.error),
+                        (o = r.complete),
+                        r !== k &&
+                          (b((s = Object.create(r)).unsubscribe) &&
+                            a.add(s.unsubscribe.bind(s)),
+                          (s.unsubscribe = a.unsubscribe.bind(a)))),
+                    (a._context = s),
+                    (a._next = i),
+                    (a._error = n),
+                    (a._complete = o),
+                    a
+                  );
+                }
+                return (
+                  y(t, e),
+                  (t.prototype.next = function(e) {
+                    if (!this.isStopped && this._next) {
+                      var t = this._parentSubscriber;
+                      m.useDeprecatedSynchronousErrorHandling &&
+                      t.syncErrorThrowable
+                        ? this.__tryOrSetError(t, this._next, e) &&
+                          this.unsubscribe()
+                        : this.__tryOrUnsub(this._next, e);
+                    }
+                  }),
+                  (t.prototype.error = function(e) {
+                    if (!this.isStopped) {
+                      var t = this._parentSubscriber,
+                        r = m.useDeprecatedSynchronousErrorHandling;
+                      if (this._error)
+                        r && t.syncErrorThrowable
+                          ? (this.__tryOrSetError(t, this._error, e),
+                            this.unsubscribe())
+                          : (this.__tryOrUnsub(this._error, e),
+                            this.unsubscribe());
+                      else if (t.syncErrorThrowable)
+                        r
+                          ? ((t.syncErrorValue = e), (t.syncErrorThrown = !0))
+                          : _(e),
+                          this.unsubscribe();
+                      else {
+                        if ((this.unsubscribe(), r)) throw e;
+                        _(e);
+                      }
+                    }
+                  }),
+                  (t.prototype.complete = function() {
+                    var e = this;
+                    if (!this.isStopped) {
+                      var t = this._parentSubscriber;
+                      if (this._complete) {
+                        var r = function() {
+                          return e._complete.call(e._context);
+                        };
+                        m.useDeprecatedSynchronousErrorHandling &&
+                        t.syncErrorThrowable
+                          ? (this.__tryOrSetError(t, r), this.unsubscribe())
+                          : (this.__tryOrUnsub(r), this.unsubscribe());
+                      } else this.unsubscribe();
+                    }
+                  }),
+                  (t.prototype.__tryOrUnsub = function(e, t) {
+                    try {
+                      e.call(this._context, t);
+                    } catch (e) {
+                      if (
+                        (this.unsubscribe(),
+                        m.useDeprecatedSynchronousErrorHandling)
+                      )
+                        throw e;
+                      _(e);
+                    }
+                  }),
+                  (t.prototype.__tryOrSetError = function(e, t, r) {
+                    if (!m.useDeprecatedSynchronousErrorHandling)
+                      throw new Error("bad call");
+                    try {
+                      t.call(this._context, r);
+                    } catch (t) {
+                      return m.useDeprecatedSynchronousErrorHandling
+                        ? ((e.syncErrorValue = t), (e.syncErrorThrown = !0), !0)
+                        : (_(t), !0);
+                    }
+                    return !1;
+                  }),
+                  (t.prototype._unsubscribe = function() {
+                    var e = this._parentSubscriber;
+                    (this._context = null),
+                      (this._parentSubscriber = null),
+                      e.unsubscribe();
+                  }),
+                  t
+                );
+              })(P);
+            var D = (function() {
+              return (
+                ("function" == typeof Symbol && Symbol.observable) ||
+                "@@observable"
+              );
+            })();
+            function x() {}
+            function Z(e) {
+              return e
+                ? 1 === e.length
+                  ? e[0]
+                  : function(t) {
+                      return e.reduce(function(e, t) {
+                        return t(e);
+                      }, t);
+                    }
+                : x;
+            }
+            var C = (function() {
+              function e(e) {
+                (this._isScalar = !1), e && (this._subscribe = e);
+              }
+              return (
+                (e.prototype.lift = function(t) {
+                  var r = new e();
+                  return (r.source = this), (r.operator = t), r;
+                }),
+                (e.prototype.subscribe = function(e, t, r) {
+                  var n = this.operator,
+                    o = (function(e, t, r) {
+                      if (e) {
+                        if (e instanceof P) return e;
+                        if (e[O]) return e[O]();
+                      }
+                      return e || t || r ? new P(e, t, r) : new P(k);
+                    })(e, t, r);
+                  if (
+                    (n
+                      ? o.add(n.call(o, this.source))
+                      : o.add(
+                          this.source ||
+                            (m.useDeprecatedSynchronousErrorHandling &&
+                              !o.syncErrorThrowable)
+                            ? this._subscribe(o)
+                            : this._trySubscribe(o)
+                        ),
+                    m.useDeprecatedSynchronousErrorHandling &&
+                      o.syncErrorThrowable &&
+                      ((o.syncErrorThrowable = !1), o.syncErrorThrown))
+                  )
+                    throw o.syncErrorValue;
+                  return o;
+                }),
+                (e.prototype._trySubscribe = function(e) {
+                  try {
+                    return this._subscribe(e);
+                  } catch (t) {
+                    m.useDeprecatedSynchronousErrorHandling &&
+                      ((e.syncErrorThrown = !0), (e.syncErrorValue = t)),
+                      !(function(e) {
+                        for (; e; ) {
+                          var t = e,
+                            r = t.closed,
+                            n = t.destination,
+                            o = t.isStopped;
+                          if (r || o) return !1;
+                          e = n && n instanceof P ? n : null;
+                        }
+                        return !0;
+                      })(e)
+                        ? console.warn(t)
+                        : e.error(t);
+                  }
+                }),
+                (e.prototype.forEach = function(e, t) {
+                  var r = this;
+                  return new (t = L(t))(function(t, n) {
+                    var o;
+                    o = r.subscribe(
+                      function(t) {
+                        try {
+                          e(t);
+                        } catch (e) {
+                          n(e), o && o.unsubscribe();
+                        }
+                      },
+                      n,
+                      t
+                    );
+                  });
+                }),
+                (e.prototype._subscribe = function(e) {
+                  var t = this.source;
+                  return t && t.subscribe(e);
+                }),
+                (e.prototype[D] = function() {
+                  return this;
+                }),
+                (e.prototype.pipe = function() {
+                  for (var e = [], t = 0; t < arguments.length; t++)
+                    e[t] = arguments[t];
+                  return 0 === e.length ? this : Z(e)(this);
+                }),
+                (e.prototype.toPromise = function(e) {
+                  var t = this;
+                  return new (e = L(e))(function(e, r) {
+                    var n;
+                    t.subscribe(
+                      function(e) {
+                        return (n = e);
+                      },
+                      function(e) {
+                        return r(e);
+                      },
+                      function() {
+                        return e(n);
+                      }
+                    );
+                  });
+                }),
+                (e.create = function(t) {
+                  return new e(t);
+                }),
+                e
+              );
+            })();
+            function L(e) {
+              if ((e || (e = m.Promise || Promise), !e))
+                throw new Error("no Promise impl found");
+              return e;
+            }
+            var z = (function() {
+                function e() {
+                  return (
+                    Error.call(this),
+                    (this.message = "object unsubscribed"),
+                    (this.name = "ObjectUnsubscribedError"),
+                    this
+                  );
+                }
+                return (e.prototype = Object.create(Error.prototype)), e;
+              })(),
+              M = (function(e) {
+                function t(t, r) {
+                  var n = e.call(this) || this;
+                  return (
+                    (n.subject = t), (n.subscriber = r), (n.closed = !1), n
+                  );
+                }
+                return (
+                  y(t, e),
+                  (t.prototype.unsubscribe = function() {
+                    if (!this.closed) {
+                      this.closed = !0;
+                      var e = this.subject,
+                        t = e.observers;
+                      if (
+                        ((this.subject = null),
+                        t && 0 !== t.length && !e.isStopped && !e.closed)
+                      ) {
+                        var r = t.indexOf(this.subscriber);
+                        -1 !== r && t.splice(r, 1);
+                      }
+                    }
+                  }),
+                  t
+                );
+              })(T),
+              I = (function(e) {
+                function t(t) {
+                  var r = e.call(this, t) || this;
+                  return (r.destination = t), r;
+                }
+                return y(t, e), t;
+              })(P),
+              R = (function(e) {
+                function t() {
+                  var t = e.call(this) || this;
+                  return (
+                    (t.observers = []),
+                    (t.closed = !1),
+                    (t.isStopped = !1),
+                    (t.hasError = !1),
+                    (t.thrownError = null),
+                    t
+                  );
+                }
+                return (
+                  y(t, e),
+                  (t.prototype[O] = function() {
+                    return new I(this);
+                  }),
+                  (t.prototype.lift = function(e) {
+                    var t = new N(this, this);
+                    return (t.operator = e), t;
+                  }),
+                  (t.prototype.next = function(e) {
+                    if (this.closed) throw new z();
+                    if (!this.isStopped)
+                      for (
+                        var t = this.observers,
+                          r = t.length,
+                          n = t.slice(),
+                          o = 0;
+                        o < r;
+                        o++
+                      )
+                        n[o].next(e);
+                  }),
+                  (t.prototype.error = function(e) {
+                    if (this.closed) throw new z();
+                    (this.hasError = !0),
+                      (this.thrownError = e),
+                      (this.isStopped = !0);
+                    for (
+                      var t = this.observers,
+                        r = t.length,
+                        n = t.slice(),
+                        o = 0;
+                      o < r;
+                      o++
+                    )
+                      n[o].error(e);
+                    this.observers.length = 0;
+                  }),
+                  (t.prototype.complete = function() {
+                    if (this.closed) throw new z();
+                    this.isStopped = !0;
+                    for (
+                      var e = this.observers,
+                        t = e.length,
+                        r = e.slice(),
+                        n = 0;
+                      n < t;
+                      n++
+                    )
+                      r[n].complete();
+                    this.observers.length = 0;
+                  }),
+                  (t.prototype.unsubscribe = function() {
+                    (this.isStopped = !0),
+                      (this.closed = !0),
+                      (this.observers = null);
+                  }),
+                  (t.prototype._trySubscribe = function(t) {
+                    if (this.closed) throw new z();
+                    return e.prototype._trySubscribe.call(this, t);
+                  }),
+                  (t.prototype._subscribe = function(e) {
+                    if (this.closed) throw new z();
+                    return this.hasError
+                      ? (e.error(this.thrownError), T.EMPTY)
+                      : this.isStopped
+                      ? (e.complete(), T.EMPTY)
+                      : (this.observers.push(e), new M(this, e));
+                  }),
+                  (t.prototype.asObservable = function() {
+                    var e = new C();
+                    return (e.source = this), e;
+                  }),
+                  (t.create = function(e, t) {
+                    return new N(e, t);
+                  }),
+                  t
+                );
+              })(C),
+              N = (function(e) {
+                function t(t, r) {
+                  var n = e.call(this) || this;
+                  return (n.destination = t), (n.source = r), n;
+                }
+                return (
+                  y(t, e),
+                  (t.prototype.next = function(e) {
+                    var t = this.destination;
+                    t && t.next && t.next(e);
+                  }),
+                  (t.prototype.error = function(e) {
+                    var t = this.destination;
+                    t && t.error && this.destination.error(e);
+                  }),
+                  (t.prototype.complete = function() {
+                    var e = this.destination;
+                    e && e.complete && this.destination.complete();
+                  }),
+                  (t.prototype._subscribe = function(e) {
+                    return this.source ? this.source.subscribe(e) : T.EMPTY;
+                  }),
+                  t
+                );
+              })(R),
+              H = (function(e) {
+                function t(t) {
+                  var r = e.call(this) || this;
+                  return (r._value = t), r;
+                }
+                return (
+                  y(t, e),
+                  Object.defineProperty(t.prototype, "value", {
+                    get: function() {
+                      return this.getValue();
+                    },
+                    enumerable: !0,
+                    configurable: !0
+                  }),
+                  (t.prototype._subscribe = function(t) {
+                    var r = e.prototype._subscribe.call(this, t);
+                    return r && !r.closed && t.next(this._value), r;
+                  }),
+                  (t.prototype.getValue = function() {
+                    if (this.hasError) throw this.thrownError;
+                    if (this.closed) throw new z();
+                    return this._value;
+                  }),
+                  (t.prototype.next = function(t) {
+                    e.prototype.next.call(this, (this._value = t));
+                  }),
+                  t
+                );
+              })(R),
+              F = new ((function() {
+                function e() {
+                  u()(this, e), d()(this, "name", new H("test"));
+                }
+                return (
+                  f()(e, [
+                    {
+                      key: "setName",
+                      value: function(e) {
+                        this.name.next(e);
+                      }
+                    },
+                    {
+                      key: "name$",
+                      get: function() {
+                        return this.name.asObservable();
+                      }
+                    }
+                  ]),
+                  e
+                );
+              })())();
+            function A(e) {
               return function(t) {
                 return !e || t.hash.startsWith("#".concat(e));
               };
             }
-            function d(e, t, n, r, o) {
-              return v.apply(this, arguments);
+            function G(e, t, r, n, o) {
+              return B.apply(this, arguments);
             }
-            function v() {
-              return (v = i()(
-                o.a.mark(function e(t, n, r, a, i) {
-                  var s, u;
+            function B() {
+              return (B = a()(
+                o.a.mark(function e(t, r, n, i, a) {
+                  var c, u;
                   return o.a.wrap(
                     function(e) {
                       for (;;)
                         switch ((e.prev = e.next)) {
                           case 0:
                             if (
-                              ((s = {}),
-                              (u = { globalEventDistributor: i }),
+                              ((c = {}),
+                              (u = { globalEventDistributor: a, service: F }),
                               (e.prev = 1),
-                              !a)
+                              !i)
                             ) {
                               e.next = 8;
                               break;
                             }
-                            return (e.next = 5), System.import(a);
+                            return (e.next = 5), System.import(i);
                           case 5:
                             (e.t0 = e.sent), (e.next = 9);
                             break;
                           case 8:
                             e.t0 = { storeInstance: null };
                           case 9:
-                            (s = e.t0), (e.next = 15);
+                            (c = e.t0), (e.next = 15);
                             break;
                           case 12:
                             (e.prev = 12),
@@ -3816,16 +4549,16 @@ System.register(["single-spa"], function(e) {
                                 e.t1
                               );
                           case 15:
-                            s.storeInstance &&
-                              i &&
-                              ((u.store = s.storeInstance),
-                              i.registerStore(s.storeInstance)),
-                              c.registerApplication(
+                            c.storeInstance &&
+                              a &&
+                              ((u.store = c.storeInstance),
+                              a.registerStore(c.storeInstance)),
+                              s.registerApplication(
                                 t,
                                 function() {
-                                  return System.import(r);
+                                  return System.import(n);
                                 },
-                                h(n),
+                                A(r),
                                 u
                               );
                           case 17:
@@ -3840,21 +4573,21 @@ System.register(["single-spa"], function(e) {
                 })
               )).apply(this, arguments);
             }
-            function y() {
-              return (y = i()(
+            function W() {
+              return (W = a()(
                 o.a.mark(function e() {
-                  var t, n;
+                  var t, r;
                   return o.a.wrap(function(e) {
                     for (;;)
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
                             (t = new p()),
-                            (n = []).push(
-                              d("@briuin/avatar", "", "@briuin/avatar", null, t)
+                            (r = []).push(
+                              G("@briuin/avatar", "", "@briuin/avatar", null, t)
                             ),
-                            n.push(
-                              d(
+                            r.push(
+                              G(
                                 "@briuin/timeline",
                                 null,
                                 "@briuin/timeline",
@@ -3862,8 +4595,8 @@ System.register(["single-spa"], function(e) {
                                 t
                               )
                             ),
-                            n.push(
-                              d(
+                            r.push(
+                              G(
                                 "@briuin/experience",
                                 null,
                                 "@briuin/experience",
@@ -3872,10 +4605,10 @@ System.register(["single-spa"], function(e) {
                               )
                             ),
                             (e.next = 7),
-                            Promise.all(n)
+                            Promise.all(r)
                           );
                         case 7:
-                          c.start();
+                          s.start();
                         case 8:
                         case "end":
                           return e.stop();
@@ -3885,7 +4618,7 @@ System.register(["single-spa"], function(e) {
               )).apply(this, arguments);
             }
             !(function() {
-              y.apply(this, arguments);
+              W.apply(this, arguments);
             })();
           }
         ])
